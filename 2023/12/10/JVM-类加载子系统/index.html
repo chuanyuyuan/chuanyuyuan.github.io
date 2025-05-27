@@ -4,26 +4,26 @@
   <meta charset="utf-8">
   
   
-  <title>JVM-类加载子系统 | Hexo</title>
+  <title>JVM-类加载子系统 | Yuan&#39;s Code Odyssey</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="类加载器（Class Loader）概念在Java中，类加载器（Class Loader）是负责加载 Java 类字节码文件并将其转换为运行时类的组件。类加载器是Java虚拟机（JVM）的一部分，它负责从文件系统、网络或其他来源加载 Java 类的二进制数据，然后创建对应的类对象。   引导类加载器（Bootstrap Class Loader）： 位于&lt;JAVA_HOME&gt;&#x2F;lib目">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM-类加载子系统">
-<meta property="og:url" content="http://example.com/2023/12/10/JVM-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:url" content="https://chuanyuyuan.github.io/2023/12/10/JVM-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="Yuan&#39;s Code Odyssey">
 <meta property="og:description" content="类加载器（Class Loader）概念在Java中，类加载器（Class Loader）是负责加载 Java 类字节码文件并将其转换为运行时类的组件。类加载器是Java虚拟机（JVM）的一部分，它负责从文件系统、网络或其他来源加载 Java 类的二进制数据，然后创建对应的类对象。   引导类加载器（Bootstrap Class Loader）： 位于&lt;JAVA_HOME&gt;&#x2F;lib目">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://raw.githubusercontent.com/cuyu0/Images/master/image-20231210161129528.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/cuyu0/Images/master/image-20231210162106240.png">
 <meta property="article:published_time" content="2023-12-10T07:28:05.000Z">
 <meta property="article:modified_time" content="2023-12-10T07:28:05.000Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="Chuanyu Yuan">
 <meta property="article:tag" content="JVM">
 <meta property="article:tag" content="面试">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/cuyu0/Images/master/image-20231210161129528.png">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Yuan's Code Odyssey" type="application/atom+xml">
   
   
     <link rel="shortcut icon" href="/favicon.png">
@@ -50,8 +50,12 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">Yuan&#39;s Code Odyssey</a>
       </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Freedom as autonomy</a>
+        </h2>
       
     </div>
     <div id="header-inner" class="inner">
@@ -65,13 +69,17 @@
       </nav>
       <nav id="sub-nav">
         
+          
+            <a class="nav-icon" target="_blank" rel="noopener" href="https://github.com/chuanyuyuan"><span class="fa fa-github"></span></a>
+          
+        
         
           <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
         
         <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://chuanyuyuan.github.io"></form>
       </div>
     </div>
   </div>
@@ -190,7 +198,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/12/10/JVM-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F/" data-id="cmb6nv63p0008g4w1757391h7" data-title="JVM-类加载子系统" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://chuanyuyuan.github.io/2023/12/10/JVM-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F/" data-id="cmb6somt100077ww1banq9i0e" data-title="JVM-类加载子系统" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -298,7 +306,10 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2025 John Doe<br>
+        <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a></br>
+All website licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a></br>
+      
+      &copy; 2025 Chuanyu Yuan<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
