@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>JVM-简介 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="概念JVM（Java Virtual Machine）是Java虚拟机的缩写。它是一种能够执行Java字节码的虚拟机，是Java平台的关键组成部分之一。Java程序员使用Java编程语言编写应用程序，这些应用程序在JVM上运行而不是在特定硬件上直接运行。 JVM类型 HotSpot JVM： HotSpot是由Sun Microsystems开发的Java虚拟机，它是Java平台的一部分。HotS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JVM-简介">
+<meta property="og:url" content="http://example.com/2023/12/06/JVM-%E7%AE%80%E4%BB%8B/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="概念JVM（Java Virtual Machine）是Java虚拟机的缩写。它是一种能够执行Java字节码的虚拟机，是Java平台的关键组成部分之一。Java程序员使用Java编程语言编写应用程序，这些应用程序在JVM上运行而不是在特定硬件上直接运行。 JVM类型 HotSpot JVM： HotSpot是由Sun Microsystems开发的Java虚拟机，它是Java平台的一部分。HotS">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/cuyu0/Images/master/image-20231206194252902.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/cuyu0/Images/master/image-20231206200159088.png">
+<meta property="article:published_time" content="2023-12-06T12:11:43.000Z">
+<meta property="article:modified_time" content="2023-12-06T12:11:43.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="JVM">
+<meta property="article:tag" content="面试">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/cuyu0/Images/master/image-20231206194252902.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-JVM-简介" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/12/06/JVM-%E7%AE%80%E4%BB%8B/" class="article-date">
+  <time class="dt-published" datetime="2023-12-06T12:11:43.000Z" itemprop="datePublished">2023-12-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      JVM-简介
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>JVM（Java Virtual Machine）是Java虚拟机的缩写。它是一种能够执行Java字节码的虚拟机，是Java平台的关键组成部分之一。Java程序员使用Java编程语言编写应用程序，这些应用程序在JVM上运行而不是在特定硬件上直接运行。</p>
+<h3 id="JVM类型"><a href="#JVM类型" class="headerlink" title="JVM类型"></a>JVM类型</h3><ol>
+<li><strong>HotSpot JVM：</strong> HotSpot是由Sun Microsystems开发的Java虚拟机，它是Java平台的一部分。HotSpot以其高性能而著称，使用即时编译（JIT）技术将字节码转换为本地机器代码。</li>
+<li><strong>JRockit JVM：</strong> JRockit是由BEA Systems（现在是Oracle Corporation的一部分）开发的Java虚拟机，专注于提供高性能和低延迟的Java应用程序执行。</li>
+<li><strong>IBM J9 JVM：</strong> IBM的J9虚拟机是IBM公司的Java虚拟机实现，主要用于IBM的Java运行时环境，例如WebSphere。</li>
+<li><strong>OpenJ9：</strong> OpenJ9是Eclipse Foundation的项目，也是一个开源的Java虚拟机实现，它具有高性能和低内存占用的特点。</li>
+<li><strong>GraalVM：</strong> GraalVM是由Oracle Labs开发的一种新型的Java虚拟机，它支持多语言运行时，并且具有即时编译器（Graal编译器），可以提供优越的性能。</li>
+</ol>
+<h3 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h3><p>JVM的主要功能包括：</p>
+<ol>
+<li><strong>字节码执行：</strong> Java源代码被编译成字节码，而不是机器特定的代码。JVM负责解释或即时编译这些字节码为机器码，以在底层硬件上执行。</li>
+<li><strong>内存管理：</strong> JVM负责管理Java程序的内存，包括堆内存（用于对象分配）和栈内存（用于方法调用和局部变量存储）。</li>
+<li><strong>垃圾回收：</strong> JVM提供自动垃圾回收功能，定期清理不再被引用的对象，释放内存。</li>
+<li><strong>即时编译（JIT）：</strong> 有些JVM实现采用即时编译技术，将字节码在运行时编译成本地机器码，以提高执行效率。</li>
+<li><strong>安全性：</strong> JVM提供安全性特性，包括字节码验证，以确保运行的代码不会违反Java语言规范。</li>
+</ol>
+<p>JVM是Java跨平台特性的关键，使得Java程序能够在不同的操作系统上运行，只要有对应的JVM实现。这种跨平台性主要是因为Java程序不直接与底层硬件交互，而是通过JVM提供的抽象层进行交互。</p>
+<p><strong>JVM支持的是JVM字节码，任何能够编译成JVM字节码的语言，都可以在JVM上运行。</strong></p>
+<h3 id="组成部分"><a href="#组成部分" class="headerlink" title="组成部分"></a>组成部分</h3><p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/image-20231206194252902.png" alt="image-20231206194252902"></p>
+<p>JVM（Java Virtual Machine）的结构主要包括以下几个关键组成部分：</p>
+<ol>
+<li><strong>类加载器（Class Loader）：</strong><ul>
+<li><strong>Bootstrap Class Loader：</strong> 负责加载Java核心库，例如<code>java.lang</code>包。</li>
+<li><strong>Extension Class Loader：</strong> 负责加载Java扩展库，例如<code>javax</code>包。</li>
+<li><strong>Application Class Loader：</strong> 负责加载应用程序的类，是最常用的类加载器。</li>
+</ul>
+</li>
+<li><strong>运行时数据区（Runtime Data Areas）：</strong><ul>
+<li><strong>方法区（Method Area）：</strong> 存储类的结构信息、常量、静态变量等数据。</li>
+<li><strong>堆（Heap）：</strong> 用于存储对象实例。所有线程共享堆，但是每个线程有自己的私有栈。</li>
+<li><strong>栈（Stack）：</strong> 每个线程都有一个私有的栈，用于存储局部变量、操作数栈、方法出口等信息。</li>
+<li><strong>程序计数器（Program Counter Register）：</strong> 记录当前线程执行的字节码指令地址。</li>
+<li><strong>本地方法栈（Native Method Stack）：</strong> 用于支持Java以外的语言调用Java本地方法。</li>
+</ul>
+</li>
+<li><strong>执行引擎（Execution Engine）：</strong><ul>
+<li><strong>解释器（Interpreter）：</strong> 逐行解释执行字节码。</li>
+<li><strong>即时编译器（Just-In-Time Compiler，JIT）：</strong> 将整个字节码编译为本地机器码，提高执行速度。</li>
+</ul>
+</li>
+<li><strong>本地接口（Native Interface）：</strong><ul>
+<li>提供了一个接口，允许Java代码调用和被调用本地库中的方法。</li>
+</ul>
+</li>
+<li><strong>本地方法库（Native Method Libraries）：</strong><ul>
+<li>包含了一组本地方法的库，这些方法可以通过本地接口调用。</li>
+</ul>
+</li>
+</ol>
+<p>JVM的结构图可以用以下简化形式表示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">sqlCopy code+---------------------------------------------+</span><br><span class="line">|                 Class Loader                 |</span><br><span class="line">+---------------------------------------------+</span><br><span class="line">|        Runtime Data Areas (JVM Memory)       |</span><br><span class="line">|  +---------------------------------------+  |</span><br><span class="line">|  |          Method Area (Class metadata, |  |</span><br><span class="line">|  |         static fields, etc.)           |  |</span><br><span class="line">|  +---------------------------------------+  |</span><br><span class="line">|  |                Heap (Object           |  |</span><br><span class="line">|  |                Instances)              |  |</span><br><span class="line">|  +---------------------------------------+  |</span><br><span class="line">|  |                Stack (Local Variables,|  |</span><br><span class="line">|  |                Operand Stack, etc.)    |  |</span><br><span class="line">|  +---------------------------------------+  |</span><br><span class="line">|  |      Program Counter (Address of the   |  |</span><br><span class="line">|  |        currently executing instruction)|  |</span><br><span class="line">|  +---------------------------------------+  |</span><br><span class="line">|  | Native Method Stack (For executing    |  |</span><br><span class="line">|  |      native methods)                  |  |</span><br><span class="line">|  +---------------------------------------+  |</span><br><span class="line">|                 Execution Engine            |</span><br><span class="line">|  +---------------------------------------+  |</span><br><span class="line">|  |          Interpreter or JIT Compiler  |  |</span><br><span class="line">|  +---------------------------------------+  |</span><br><span class="line">|               Native Interface              |</span><br><span class="line">|  +---------------------------------------+  |</span><br><span class="line">|  |          Native Method Libraries      |  |</span><br><span class="line">|  +---------------------------------------+  |</span><br><span class="line">+---------------------------------------------+</span><br></pre></td></tr></table></figure>
+
+<p>上述结构展示了JVM在运行Java程序时所涉及的主要组成部分。不同的JVM实现可能有细微的差异，但这个基本结构是通用的。</p>
+<h3 id="JVM的位置"><a href="#JVM的位置" class="headerlink" title="JVM的位置"></a>JVM的位置</h3><p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/image-20231206200159088.png" alt="image-20231206200159088"></p>
+<p>JVM是运行在操作系统上的，它与硬件没有直接交互</p>
+<h3 id="JVM字节码架构"><a href="#JVM字节码架构" class="headerlink" title="JVM字节码架构"></a>JVM字节码架构</h3><p>JVM字节码是一种栈式架构。</p>
+<p>Java 编译器（javac）将 Java 源代码翻译成字节码（bytecode），而字节码是一种与底层硬件架构无关的中间表示。字节码并不直接与特定硬件架构相关联，因此不涉及具体的计算机体系结构。</p>
+<p>字节码采用的是一种栈式架构（stack-based architecture），它基于一种假设，即操作数和操作数结果都存储在一个操作数栈中。这种栈式架构是为了在不同的硬件平台上都能够保持一致性，实现 Java 跨平台执行的目标。字节码的执行是由 Java 虚拟机（JVM）来完成的，JVM 将字节码解释或编译成本地机器代码，以在特定硬件上执行。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/12/06/JVM-%E7%AE%80%E4%BB%8B/" data-id="cmb6nv63o0005g4w1d6jqd9i8" data-title="JVM-简介" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/12/10/JVM-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JVM-类加载子系统
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/01/21/%E5%90%83%E9%80%8F%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">吃透基础算法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Typora/" rel="tag">Typora</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag">图床</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" rel="tag">排序算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: 16.67px;">Blog</a> <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/JVM/" style="font-size: 16.67px;">JVM</a> <a href="/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/tags/%E5%9B%BE%E5%BA%8A/" style="font-size: 10px;">图床</a> <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" style="font-size: 10px;">排序算法</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 20px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/05/27/Hexo%E5%BB%BA%E7%AB%99%E6%B5%81%E7%A8%8B/">Hexo建站流程</a>
+          </li>
+        
+          <li>
+            <a href="/2025/05/27/Node.js%E9%A1%B9%E7%9B%AE%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86%E8%A7%A3%E6%9E%90/">Node.js项目依赖管理解析</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/10/JVM-%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8/">JVM-程序计数器</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/10/JVM-%E6%9E%B6%E6%9E%84%E5%9B%BE/">JVM-架构图</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/10/JVM-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F/">JVM-类加载子系统</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

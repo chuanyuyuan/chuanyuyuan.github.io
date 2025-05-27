@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>JVM-类加载子系统 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="类加载器（Class Loader）概念在Java中，类加载器（Class Loader）是负责加载 Java 类字节码文件并将其转换为运行时类的组件。类加载器是Java虚拟机（JVM）的一部分，它负责从文件系统、网络或其他来源加载 Java 类的二进制数据，然后创建对应的类对象。   引导类加载器（Bootstrap Class Loader）： 位于&lt;JAVA_HOME&gt;&#x2F;lib目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JVM-类加载子系统">
+<meta property="og:url" content="http://example.com/2023/12/10/JVM-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="类加载器（Class Loader）概念在Java中，类加载器（Class Loader）是负责加载 Java 类字节码文件并将其转换为运行时类的组件。类加载器是Java虚拟机（JVM）的一部分，它负责从文件系统、网络或其他来源加载 Java 类的二进制数据，然后创建对应的类对象。   引导类加载器（Bootstrap Class Loader）： 位于&lt;JAVA_HOME&gt;&#x2F;lib目">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/cuyu0/Images/master/image-20231210161129528.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/cuyu0/Images/master/image-20231210162106240.png">
+<meta property="article:published_time" content="2023-12-10T07:28:05.000Z">
+<meta property="article:modified_time" content="2023-12-10T07:28:05.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="JVM">
+<meta property="article:tag" content="面试">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/cuyu0/Images/master/image-20231210161129528.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-JVM-类加载子系统" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/12/10/JVM-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F/" class="article-date">
+  <time class="dt-published" datetime="2023-12-10T07:28:05.000Z" itemprop="datePublished">2023-12-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      JVM-类加载子系统
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="类加载器（Class-Loader）"><a href="#类加载器（Class-Loader）" class="headerlink" title="类加载器（Class Loader）"></a>类加载器（Class Loader）</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>在Java中，类加载器（Class Loader）是负责加载 Java 类字节码文件并将其转换为运行时类的组件。类加载器是Java虚拟机（JVM）的一部分，它负责从文件系统、网络或其他来源加载 Java 类的二进制数据，然后创建对应的类对象。</p>
+<p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/image-20231210161129528.png" alt="image-20231210161129528"></p>
+<ol>
+<li><strong>引导类加载器（Bootstrap Class Loader）：</strong><ul>
+<li>位于<code>&lt;JAVA_HOME&gt;/lib</code>目录，是虚拟机的一部分，用本地代码实现。</li>
+<li>主要负责加载核心类库，如<code>java.lang</code>、<code>java.util</code>等。由于它是用本地代码实现的，所以在Java中无法直接获取对引导类加载器的引用。</li>
+</ul>
+</li>
+<li><strong>扩展类加载器（Extension Class Loader）：</strong><ul>
+<li>由<code>sun.misc.Launcher$ExtClassLoader</code>实现，是<code>sun.misc.Launcher</code>的一部分。</li>
+<li>负责加载<code>&lt;JAVA_HOME&gt;/lib/ext</code>目录中的类库，用于扩展JVM的功能。</li>
+</ul>
+</li>
+<li><strong>应用程序类加载器（Application Class Loader）：</strong><ul>
+<li>由<code>sun.misc.Launcher$AppClassLoader</code>实现，是<code>sun.misc.Launcher</code>的一部分。</li>
+<li>负责加载应用程序classpath下的类。这是大多数Java应用程序默认的类加载器。</li>
+</ul>
+</li>
+<li><strong>自定义类加载器：</strong><ul>
+<li>继承自<code>java.lang.ClassLoader</code>类，通过覆盖<code>findClass</code>方法实现自定义的类加载逻辑。</li>
+<li>自定义类加载器可以用于实现一些特殊的加载需求，例如从非标准位置加载类、动态生成类等。</li>
+</ul>
+</li>
+</ol>
+<h3 id="双亲委派模型"><a href="#双亲委派模型" class="headerlink" title="双亲委派模型"></a>双亲委派模型</h3><p>类加载器的双亲委派模型是Java中用于组织类加载器之间关系的一种机制。该模型的核心思想是，当一个类加载器（Child Class Loader）需要加载类时，它首先将这个任务委派给父加载器（Parent Class Loader）。这一委派过程一直往上，直到达到引导类加载器（Bootstrap Class Loader）。只有在父加载器无法加载该类的情况下，才由当前类加载器尝试加载。</p>
+<p>双亲委派模型主要用于保证Java类的加载的有序性、唯一性和安全性。以下是一些双亲委派模型的应用方面：</p>
+<ol>
+<li><strong>防止类的重复加载：</strong> 双亲委派模型确保在整个类加载器层次结构中，相同名称的类只会被加载一次。如果一个类加载器已经加载了某个类，那么它的父加载器不会再加载一次相同的类，从而避免了类的重复加载。</li>
+<li><strong>核心类库的安全性：</strong> 核心类库由引导类加载器加载，这样可以防止自定义类加载器替代核心类库中的类，确保核心类库的完整性和安全性。</li>
+<li><strong>保证类加载的有序性：</strong> 双亲委派模型确保类加载是有序的，即从下到上的加载顺序。当一个类加载器尝试加载一个类时，首先会委派给其父加载器，这种有序性有助于避免类加载的混乱和冲突。</li>
+<li><strong>系统安全性：</strong> 通过双亲委派模型，Java可以在运行时确保核心类库的完整性，防止不信任的代码替代核心类，提高系统的安全性。</li>
+<li><strong>避免类加载的混乱：</strong> 双亲委派模型避免了不同的类加载器加载相同类名的类，从而防止了类的混乱和冲突。</li>
+<li><strong>实现模块化和隔离：</strong> 双亲委派模型支持不同层次的类加载器，这使得在不同的层次上实现模块化和隔离成为可能。例如，不同的Web应用程序可以使用各自的类加载器，实现彼此隔离。</li>
+</ol>
+<p>总体而言，双亲委派模型在Java中提供了一种清晰且有序的类加载机制，通过这种机制，Java可以实现类的唯一性、安全性和层次性，为Java应用程序提供了可靠的基础。</p>
+<p>在正常情况下，由于Java的双亲委派模型，<code>java.lang.String</code>这个类是由引导类加载器加载的。如果尝试自定义一个类，命名为<code>java.lang.String</code>，并尝试加载这个类，由于双亲委派机制，它会被引导类加载器拦截，而不是被应用程序类加载器加载。</p>
+<p>以下是一个简单的例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 自定义一个名为 java.lang.String 的类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">java</span>.lang.String &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Custom java.lang.String class&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后，编写一个包含上述自定义类的Java程序：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CustomStringTest</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 尝试加载自定义的 java.lang.String 类</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 使用系统类加载器加载</span></span><br><span class="line">            Class&lt;?&gt; customStringClass = Class.forName(<span class="string">&quot;java.lang.String&quot;</span>);</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 如果成功加载，创建实例并调用 main 方法</span></span><br><span class="line">            customStringClass.newInstance().getClass().getMethod(<span class="string">&quot;main&quot;</span>, String[].class)</span><br><span class="line">                    .invoke(<span class="literal">null</span>, (Object) <span class="literal">null</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClassNotFoundException | IllegalAccessException |</span><br><span class="line">                InstantiationException | NoSuchMethodException |</span><br><span class="line">                InvocationTargetException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在运行<code>CustomStringTest</code>类时，由于双亲委派模型，实际上会加载引导类加载器中的<code>java.lang.String</code>，而不是自定义的<code>java.lang.String</code>类。这会导致类加载错误，因为引导类加载器不允许在<code>java.lang</code>包中加载自定义的类。</p>
+<h3 id="沙箱安全机制"><a href="#沙箱安全机制" class="headerlink" title="沙箱安全机制"></a>沙箱安全机制</h3><p>Java的沙箱安全机制是一种安全措施，旨在提供一种对Java应用程序执行环境进行限制的方式，以防止恶意代码对系统的不当访问。这种机制通过限制代码在运行时的行为，尤其是对底层系统资源的访问，来提高Java应用程序的安全性。以下是Java的沙箱安全机制的一些关键方面：</p>
+<ol>
+<li><strong>字节码验证：</strong> 在Java中，所有的Java类都被编译成字节码，然后由Java虚拟机（JVM）执行。字节码验证是确保字节码的合法性和安全性的过程。在加载类的过程中，JVM会对字节码进行验证，以防止通过恶意手段构造的恶意代码。</li>
+<li><strong>类加载器的双亲委派模型：</strong> 双亲委派模型在一定程度上提高了类加载的安全性。核心类库由引导类加载器加载，而应用程序类由应用程序类加载器加载。这种层次结构确保核心类库不容易被替代，从而维护了系统的稳定性和安全性。</li>
+<li><strong>安全管理器（Security Manager）：</strong> 安全管理器是Java的一个关键组件，它允许在Java应用程序中定义安全策略。通过安全管理器，可以授予或拒绝代码对系统资源的访问，如文件、网络、系统属性等。开发人员可以通过在应用程序中配置安全策略文件，限制代码的权限。</li>
+</ol>
+<h2 id="类的加载过程"><a href="#类的加载过程" class="headerlink" title="类的加载过程"></a>类的加载过程</h2><p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/image-20231210162106240.png" alt="image-20231210162106240"></p>
+<h3 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h3><p>Java类的加载过程是指将Java源代码编译成字节码文件（.class 文件）并加载到Java虚拟机（JVM）中运行的整个过程。</p>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ol>
+<li><strong>加载（Loading）：</strong><ul>
+<li>类的加载是指将类的字节码文件加载到内存中。这个过程由类加载器（ClassLoader）来完成。</li>
+<li>类加载器根据类的全限定名（Fully Qualified Name）查找类文件，可以从文件系统、网络或其他来源获取字节码数据。</li>
+<li>加载完成后，字节码数据被存储在方法区（Method Area）中，不同类的字节码数据在方法区中占据不同的区域。</li>
+</ul>
+</li>
+<li><strong>验证（Verification）：</strong><ul>
+<li>验证阶段确保加载的字节码是合法、符合规范的。这个过程主要包括对字节码格式的验证、符号引用的验证等。</li>
+<li>验证阶段是确保类的可靠性和安全性的关键一步。</li>
+<li><strong>标准JVM字节码都以CAFE BABE开头</strong></li>
+</ul>
+</li>
+<li><strong>准备（Preparation）：</strong><ul>
+<li>在准备阶段，虚拟机为类的静态变量分配内存，并设置默认初始值。</li>
+<li>这里分配的内存不包括在代码中显式赋值的部分，只包括那些由系统自动生成的、具有默认值的部分。</li>
+</ul>
+</li>
+<li><strong>解析（Resolution）：</strong><ul>
+<li>解析阶段是将类、接口、字段和方法的符号引用解析为直接引用的过程。</li>
+<li>在解析阶段，虚拟机将符号引用替换为直接引用，以便后续的执行阶段使用。</li>
+</ul>
+</li>
+<li><strong>初始化（Initialization）：</strong><ul>
+<li>在初始化阶段，对类进行初始化。这是类加载过程的最后一步。</li>
+<li>在初始化阶段，虚拟机执行类的初始化代码，包括执行静态初始化块和静态变量的赋值。</li>
+<li>初始化阶段是类加载中的一个重要阶段，它确保了在使用类之前，类的初始化工作已经完成。</li>
+</ul>
+</li>
+</ol>
+<p>JVM判断两个对象是否为同一个类的两个必要条件：</p>
+<ol>
+<li>类的名称必须完全相同，包括完整包名</li>
+<li>加载它们的类加载器相同</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/12/10/JVM-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F/" data-id="cmb6nv63p0008g4w1757391h7" data-title="JVM-类加载子系统" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/12/10/JVM-%E6%9E%B6%E6%9E%84%E5%9B%BE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JVM-架构图
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/12/06/JVM-%E7%AE%80%E4%BB%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JVM-简介</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Typora/" rel="tag">Typora</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag">图床</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" rel="tag">排序算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: 16.67px;">Blog</a> <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/JVM/" style="font-size: 16.67px;">JVM</a> <a href="/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/tags/%E5%9B%BE%E5%BA%8A/" style="font-size: 10px;">图床</a> <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" style="font-size: 10px;">排序算法</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 20px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/05/27/Hexo%E5%BB%BA%E7%AB%99%E6%B5%81%E7%A8%8B/">Hexo建站流程</a>
+          </li>
+        
+          <li>
+            <a href="/2025/05/27/Node.js%E9%A1%B9%E7%9B%AE%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86%E8%A7%A3%E6%9E%90/">Node.js项目依赖管理解析</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/10/JVM-%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8/">JVM-程序计数器</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/10/JVM-%E6%9E%B6%E6%9E%84%E5%9B%BE/">JVM-架构图</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/10/JVM-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F/">JVM-类加载子系统</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

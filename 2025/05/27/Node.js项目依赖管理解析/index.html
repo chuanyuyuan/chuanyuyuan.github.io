@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Node.js项目依赖管理解析 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="hexo常用指令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js项目依赖管理解析">
+<meta property="og:url" content="http://example.com/2025/05/27/Node.js%E9%A1%B9%E7%9B%AE%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86%E8%A7%A3%E6%9E%90/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="hexo常用指令">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/chuanyuyuan/Images/master/image-20250527112924090.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chuanyuyuan/Images/master/image-20250527165156505.png">
+<meta property="article:published_time" content="2025-05-26T23:32:48.000Z">
+<meta property="article:modified_time" content="2025-05-26T23:32:48.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/chuanyuyuan/Images/master/image-20250527112924090.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Node.js项目依赖管理解析" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/05/27/Node.js%E9%A1%B9%E7%9B%AE%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86%E8%A7%A3%E6%9E%90/" class="article-date">
+  <time class="dt-published" datetime="2025-05-26T23:32:48.000Z" itemprop="datePublished">2025-05-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Node.js项目依赖管理解析
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>使用npm install安装hexo后发现目录下多了node_modules这个文件夹。</p>
+<p><img src="https://raw.githubusercontent.com/chuanyuyuan/Images/master/image-20250527112924090.png" alt="image-20250527112924090"></p>
+<h3 id="为什么会出现-node-modules？"><a href="#为什么会出现-node-modules？" class="headerlink" title="为什么会出现 node_modules？"></a>为什么会出现 <code>node_modules</code>？</h3><ol>
+<li><strong>依赖管理</strong>：<ul>
+<li>当你运行 <code>npm install</code>  时，Node.js 的包管理器（npm）会根据 <code>package.json</code> 文件自动下载项目所需的依赖包，并存储在 <code>node_modules</code> 文件夹中。</li>
+<li>例如，如果你安装了 <code>lodash</code>，它会被下载到 <code>node_modules/lodash</code>。</li>
+</ul>
+</li>
+<li><strong>本地安装</strong>：<ul>
+<li>默认情况下，<code>npm install</code> 会把依赖安装在当前项目的 <code>node_modules</code> 下，而不是全局（除非你加了 <code>-g</code> 参数）。</li>
+</ul>
+</li>
+<li><strong>自动生成</strong>：<ul>
+<li>这个文件夹通常不会被手动创建，而是由 npm自动生成，用于存放所有第三方库的代码。</li>
+</ul>
+</li>
+</ol>
+<h3 id="如何处理呢？"><a href="#如何处理呢？" class="headerlink" title="如何处理呢？"></a>如何处理呢？</h3><h4 id="1-删除-node-modules-和相关文件"><a href="#1-删除-node-modules-和相关文件" class="headerlink" title="1. 删除 node_modules 和相关文件"></a><strong>1. 删除 <code>node_modules</code> 和相关文件</strong></h4><p>直接使用 <code>rm -rf</code>（推荐，Git Bash 默认支持）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 删除 node_modules（递归强制删除）</span><br><span class="line">rm -rf node_modules</span><br><span class="line"></span><br><span class="line"># 删除 package-lock.json 和 package.json（可选）</span><br><span class="line">rm package-lock.json package.json</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-全局-npm配置（Git-Bash-兼容写法）"><a href="#2-全局-npm配置（Git-Bash-兼容写法）" class="headerlink" title="2. 全局 npm配置（Git Bash 兼容写法）"></a><strong>2. 全局 npm配置（Git Bash 兼容写法）</strong></h4><h5 id="A-查看-修改全局安装路径"><a href="#A-查看-修改全局安装路径" class="headerlink" title="(A) 查看&#x2F;修改全局安装路径"></a><strong>(A) 查看&#x2F;修改全局安装路径</strong></h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 查看当前全局安装路径（Git Bash 可正常执行）</span><br><span class="line">npm config get prefix</span><br><span class="line"></span><br><span class="line"># 修改全局路径（注意：路径用斜杠 /，Git Bash 能识别）</span><br><span class="line">npm config set prefix &quot;D:/node_global&quot;  # 示例路径</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>⚠️ <strong>路径格式注意</strong>：</p>
+<ul>
+<li>Git Bash 默认使用 Linux 风格路径（<code>/c/Users/xxx</code>），但设置 npm 全局路径时建议用 <strong><code>D:/node_global</code></strong>（正斜杠）或 <strong><code>D:\\node_global</code></strong>（双反斜杠），避免转义问题。</li>
+</ul>
+</blockquote>
+<h5 id="B-将新路径加入系统环境变量"><a href="#B-将新路径加入系统环境变量" class="headerlink" title="(B) 将新路径加入系统环境变量"></a><strong>(B) 将新路径加入系统环境变量</strong></h5><p>右键 <code>此电脑</code> → <code>属性</code> → <code>高级系统设置</code> → <code>环境变量</code> → 在 <code>Path</code> 中添加 <code>D:\node_global</code>。</p>
+<h5 id="C-清理缓存"><a href="#C-清理缓存" class="headerlink" title="(C) 清理缓存"></a><strong>(C) 清理缓存</strong></h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># npm 清理缓存（Git Bash 可执行）</span><br><span class="line">npm cache clean --force</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-使用-g参数进行全局安装"><a href="#3-使用-g参数进行全局安装" class="headerlink" title="3.使用-g参数进行全局安装"></a>3.使用-g参数进行全局安装</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 检查全局安装的包</span><br><span class="line">npm list -g --depth=0</span><br><span class="line"></span><br><span class="line"># 使用全局安装</span><br><span class="line">npm install -g xxx</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/chuanyuyuan/Images/master/image-20250527165156505.png" alt="image-20250527165156505"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/05/27/Node.js%E9%A1%B9%E7%9B%AE%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86%E8%A7%A3%E6%9E%90/" data-id="cmb6nv63p0007g4w1bt0pbwgu" data-title="Node.js项目依赖管理解析" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2025/05/27/Hexo%E5%BB%BA%E7%AB%99%E6%B5%81%E7%A8%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hexo建站流程
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/12/10/JVM-%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JVM-程序计数器</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Typora/" rel="tag">Typora</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag">图床</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" rel="tag">排序算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: 16.67px;">Blog</a> <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/JVM/" style="font-size: 16.67px;">JVM</a> <a href="/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/tags/%E5%9B%BE%E5%BA%8A/" style="font-size: 10px;">图床</a> <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" style="font-size: 10px;">排序算法</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 20px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/05/27/Hexo%E5%BB%BA%E7%AB%99%E6%B5%81%E7%A8%8B/">Hexo建站流程</a>
+          </li>
+        
+          <li>
+            <a href="/2025/05/27/Node.js%E9%A1%B9%E7%9B%AE%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86%E8%A7%A3%E6%9E%90/">Node.js项目依赖管理解析</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/10/JVM-%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8/">JVM-程序计数器</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/10/JVM-%E6%9E%B6%E6%9E%84%E5%9B%BE/">JVM-架构图</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/10/JVM-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F/">JVM-类加载子系统</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

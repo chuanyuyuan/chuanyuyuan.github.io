@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Hexo建站流程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/05/27/Hexo%E5%BB%BA%E7%AB%99%E6%B5%81%E7%A8%8B/" class="article-date">
+  <time class="dt-published" datetime="2025-05-26T23:32:48.000Z" itemprop="datePublished">2025-05-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/05/27/Hexo%E5%BB%BA%E7%AB%99%E6%B5%81%E7%A8%8B/">Hexo建站流程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><p>使用 npm 安装 Hexo。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<h3 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h3><p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+
+<p>初始化后，您的项目文件夹将如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/chuanyuyuan/Images/master/image-20250527173244516.png" alt="image-20250527173244516"></p>
+<h3 id="部署本地"><a href="#部署本地" class="headerlink" title="部署本地"></a>部署本地</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># /source/_posts路径下已有hello-world.md</span><br><span class="line"># 使用hexo generate生成静态文件</span><br><span class="line">hexo generate</span><br><span class="line"># 使用hexo server部署至本地，默认4000端口</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://raw.githubusercontent.com/chuanyuyuan/Images/master/image-20250527211821480.png" alt="image-20250527211821480"></p>
+<p><img src="https://raw.githubusercontent.com/chuanyuyuan/Images/master/image-20250527212110584.png" alt="image-20250527212110584"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/05/27/Hexo%E5%BB%BA%E7%AB%99%E6%B5%81%E7%A8%8B/" data-id="cmb6nv63n0003g4w126ex2g26" data-title="Hexo建站流程" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Node.js项目依赖管理解析" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/05/27/Node.js%E9%A1%B9%E7%9B%AE%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86%E8%A7%A3%E6%9E%90/" class="article-date">
+  <time class="dt-published" datetime="2025-05-26T23:32:48.000Z" itemprop="datePublished">2025-05-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/05/27/Node.js%E9%A1%B9%E7%9B%AE%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86%E8%A7%A3%E6%9E%90/">Node.js项目依赖管理解析</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>使用npm install安装hexo后发现目录下多了node_modules这个文件夹。</p>
+<p><img src="https://raw.githubusercontent.com/chuanyuyuan/Images/master/image-20250527112924090.png" alt="image-20250527112924090"></p>
+<h3 id="为什么会出现-node-modules？"><a href="#为什么会出现-node-modules？" class="headerlink" title="为什么会出现 node_modules？"></a>为什么会出现 <code>node_modules</code>？</h3><ol>
+<li><strong>依赖管理</strong>：<ul>
+<li>当你运行 <code>npm install</code>  时，Node.js 的包管理器（npm）会根据 <code>package.json</code> 文件自动下载项目所需的依赖包，并存储在 <code>node_modules</code> 文件夹中。</li>
+<li>例如，如果你安装了 <code>lodash</code>，它会被下载到 <code>node_modules/lodash</code>。</li>
+</ul>
+</li>
+<li><strong>本地安装</strong>：<ul>
+<li>默认情况下，<code>npm install</code> 会把依赖安装在当前项目的 <code>node_modules</code> 下，而不是全局（除非你加了 <code>-g</code> 参数）。</li>
+</ul>
+</li>
+<li><strong>自动生成</strong>：<ul>
+<li>这个文件夹通常不会被手动创建，而是由 npm自动生成，用于存放所有第三方库的代码。</li>
+</ul>
+</li>
+</ol>
+<h3 id="如何处理呢？"><a href="#如何处理呢？" class="headerlink" title="如何处理呢？"></a>如何处理呢？</h3><h4 id="1-删除-node-modules-和相关文件"><a href="#1-删除-node-modules-和相关文件" class="headerlink" title="1. 删除 node_modules 和相关文件"></a><strong>1. 删除 <code>node_modules</code> 和相关文件</strong></h4><p>直接使用 <code>rm -rf</code>（推荐，Git Bash 默认支持）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 删除 node_modules（递归强制删除）</span><br><span class="line">rm -rf node_modules</span><br><span class="line"></span><br><span class="line"># 删除 package-lock.json 和 package.json（可选）</span><br><span class="line">rm package-lock.json package.json</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-全局-npm配置（Git-Bash-兼容写法）"><a href="#2-全局-npm配置（Git-Bash-兼容写法）" class="headerlink" title="2. 全局 npm配置（Git Bash 兼容写法）"></a><strong>2. 全局 npm配置（Git Bash 兼容写法）</strong></h4><h5 id="A-查看-修改全局安装路径"><a href="#A-查看-修改全局安装路径" class="headerlink" title="(A) 查看&#x2F;修改全局安装路径"></a><strong>(A) 查看&#x2F;修改全局安装路径</strong></h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 查看当前全局安装路径（Git Bash 可正常执行）</span><br><span class="line">npm config get prefix</span><br><span class="line"></span><br><span class="line"># 修改全局路径（注意：路径用斜杠 /，Git Bash 能识别）</span><br><span class="line">npm config set prefix &quot;D:/node_global&quot;  # 示例路径</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>⚠️ <strong>路径格式注意</strong>：</p>
+<ul>
+<li>Git Bash 默认使用 Linux 风格路径（<code>/c/Users/xxx</code>），但设置 npm 全局路径时建议用 <strong><code>D:/node_global</code></strong>（正斜杠）或 <strong><code>D:\\node_global</code></strong>（双反斜杠），避免转义问题。</li>
+</ul>
+</blockquote>
+<h5 id="B-将新路径加入系统环境变量"><a href="#B-将新路径加入系统环境变量" class="headerlink" title="(B) 将新路径加入系统环境变量"></a><strong>(B) 将新路径加入系统环境变量</strong></h5><p>右键 <code>此电脑</code> → <code>属性</code> → <code>高级系统设置</code> → <code>环境变量</code> → 在 <code>Path</code> 中添加 <code>D:\node_global</code>。</p>
+<h5 id="C-清理缓存"><a href="#C-清理缓存" class="headerlink" title="(C) 清理缓存"></a><strong>(C) 清理缓存</strong></h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># npm 清理缓存（Git Bash 可执行）</span><br><span class="line">npm cache clean --force</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-使用-g参数进行全局安装"><a href="#3-使用-g参数进行全局安装" class="headerlink" title="3.使用-g参数进行全局安装"></a>3.使用-g参数进行全局安装</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 检查全局安装的包</span><br><span class="line">npm list -g --depth=0</span><br><span class="line"></span><br><span class="line"># 使用全局安装</span><br><span class="line">npm install -g xxx</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/chuanyuyuan/Images/master/image-20250527165156505.png" alt="image-20250527165156505"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/05/27/Node.js%E9%A1%B9%E7%9B%AE%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86%E8%A7%A3%E6%9E%90/" data-id="cmb6nv63p0007g4w1bt0pbwgu" data-title="Node.js项目依赖管理解析" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-JVM-程序计数器" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/12/10/JVM-%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8/" class="article-date">
+  <time class="dt-published" datetime="2023-12-10T08:30:45.000Z" itemprop="datePublished">2023-12-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/12/10/JVM-%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8/">JVM-程序计数器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>Java虚拟机（JVM）中的程序计数器（Program Counter）是一块较小的内存区域，用于指示当前线程执行的字节码指令地址。每个线程都有自己的程序计数器，是<strong>线程私有</strong>的，属于线程上下文的一部分。<strong>程序计数器在JVM的内存模型中是唯一一个不会发生OutOfMemoryError的区域</strong>。</p>
+<p>程序计数器的作用和主要特点包括：</p>
+<ol>
+<li><strong>指示下一条指令的执行地址：</strong> 程序计数器中存储着当前线程正在执行的字节码指令的地址。它是一个指针，指向方法区中的方法字节码的地址。</li>
+<li><strong>线程切换时的恢复点：</strong> 由于程序计数器存储着线程执行的位置信息，所以在线程切换时，JVM可以通过程序计数器快速恢复线程的执行状态。这使得线程切换时的开销相对较小。</li>
+<li><strong>方法间的控制流信息：</strong> 程序计数器也用于跟踪方法之间的控制流，包括方法调用、返回地址等信息。对于Java程序来说，方法调用和返回时程序计数器的值都会发生变化。</li>
+<li><strong>多线程并发支持：</strong> 每个线程都有自己的程序计数器，使得多线程在执行过程中相互独立，不会互相干扰。一个线程的程序计数器的变化不会影响其他线程的执行。</li>
+</ol>
+<p>需要注意的是，程序计数器是JVM中唯一一个在Java虚拟机规范中没有规定任何OutOfMemoryError情况的区域。这是因为程序计数器只是一个指示器，不会占用大量内存，并且随着线程的创建和销毁而动态分配和释放。</p>
+<p>总体来说，程序计数器在Java虚拟机中扮演着非常重要的角色，用于支持线程切换、方法调用和控制流等功能。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/12/10/JVM-%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8/" data-id="cmb6nv63o0004g4w188cze0ih" data-title="JVM-程序计数器" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-JVM-架构图" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/12/10/JVM-%E6%9E%B6%E6%9E%84%E5%9B%BE/" class="article-date">
+  <time class="dt-published" datetime="2023-12-10T08:06:17.000Z" itemprop="datePublished">2023-12-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/12/10/JVM-%E6%9E%B6%E6%9E%84%E5%9B%BE/">JVM-架构图</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/image-20231210160705476.png" alt="image-20231210160705476"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/12/10/JVM-%E6%9E%B6%E6%9E%84%E5%9B%BE/" data-id="cmb6nv63l0001g4w1e8dp3zbn" data-title="JVM-架构图" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-JVM-类加载子系统" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/12/10/JVM-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F/" class="article-date">
+  <time class="dt-published" datetime="2023-12-10T07:28:05.000Z" itemprop="datePublished">2023-12-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/12/10/JVM-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F/">JVM-类加载子系统</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="类加载器（Class-Loader）"><a href="#类加载器（Class-Loader）" class="headerlink" title="类加载器（Class Loader）"></a>类加载器（Class Loader）</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>在Java中，类加载器（Class Loader）是负责加载 Java 类字节码文件并将其转换为运行时类的组件。类加载器是Java虚拟机（JVM）的一部分，它负责从文件系统、网络或其他来源加载 Java 类的二进制数据，然后创建对应的类对象。</p>
+<p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/image-20231210161129528.png" alt="image-20231210161129528"></p>
+<ol>
+<li><strong>引导类加载器（Bootstrap Class Loader）：</strong><ul>
+<li>位于<code>&lt;JAVA_HOME&gt;/lib</code>目录，是虚拟机的一部分，用本地代码实现。</li>
+<li>主要负责加载核心类库，如<code>java.lang</code>、<code>java.util</code>等。由于它是用本地代码实现的，所以在Java中无法直接获取对引导类加载器的引用。</li>
+</ul>
+</li>
+<li><strong>扩展类加载器（Extension Class Loader）：</strong><ul>
+<li>由<code>sun.misc.Launcher$ExtClassLoader</code>实现，是<code>sun.misc.Launcher</code>的一部分。</li>
+<li>负责加载<code>&lt;JAVA_HOME&gt;/lib/ext</code>目录中的类库，用于扩展JVM的功能。</li>
+</ul>
+</li>
+<li><strong>应用程序类加载器（Application Class Loader）：</strong><ul>
+<li>由<code>sun.misc.Launcher$AppClassLoader</code>实现，是<code>sun.misc.Launcher</code>的一部分。</li>
+<li>负责加载应用程序classpath下的类。这是大多数Java应用程序默认的类加载器。</li>
+</ul>
+</li>
+<li><strong>自定义类加载器：</strong><ul>
+<li>继承自<code>java.lang.ClassLoader</code>类，通过覆盖<code>findClass</code>方法实现自定义的类加载逻辑。</li>
+<li>自定义类加载器可以用于实现一些特殊的加载需求，例如从非标准位置加载类、动态生成类等。</li>
+</ul>
+</li>
+</ol>
+<h3 id="双亲委派模型"><a href="#双亲委派模型" class="headerlink" title="双亲委派模型"></a>双亲委派模型</h3><p>类加载器的双亲委派模型是Java中用于组织类加载器之间关系的一种机制。该模型的核心思想是，当一个类加载器（Child Class Loader）需要加载类时，它首先将这个任务委派给父加载器（Parent Class Loader）。这一委派过程一直往上，直到达到引导类加载器（Bootstrap Class Loader）。只有在父加载器无法加载该类的情况下，才由当前类加载器尝试加载。</p>
+<p>双亲委派模型主要用于保证Java类的加载的有序性、唯一性和安全性。以下是一些双亲委派模型的应用方面：</p>
+<ol>
+<li><strong>防止类的重复加载：</strong> 双亲委派模型确保在整个类加载器层次结构中，相同名称的类只会被加载一次。如果一个类加载器已经加载了某个类，那么它的父加载器不会再加载一次相同的类，从而避免了类的重复加载。</li>
+<li><strong>核心类库的安全性：</strong> 核心类库由引导类加载器加载，这样可以防止自定义类加载器替代核心类库中的类，确保核心类库的完整性和安全性。</li>
+<li><strong>保证类加载的有序性：</strong> 双亲委派模型确保类加载是有序的，即从下到上的加载顺序。当一个类加载器尝试加载一个类时，首先会委派给其父加载器，这种有序性有助于避免类加载的混乱和冲突。</li>
+<li><strong>系统安全性：</strong> 通过双亲委派模型，Java可以在运行时确保核心类库的完整性，防止不信任的代码替代核心类，提高系统的安全性。</li>
+<li><strong>避免类加载的混乱：</strong> 双亲委派模型避免了不同的类加载器加载相同类名的类，从而防止了类的混乱和冲突。</li>
+<li><strong>实现模块化和隔离：</strong> 双亲委派模型支持不同层次的类加载器，这使得在不同的层次上实现模块化和隔离成为可能。例如，不同的Web应用程序可以使用各自的类加载器，实现彼此隔离。</li>
+</ol>
+<p>总体而言，双亲委派模型在Java中提供了一种清晰且有序的类加载机制，通过这种机制，Java可以实现类的唯一性、安全性和层次性，为Java应用程序提供了可靠的基础。</p>
+<p>在正常情况下，由于Java的双亲委派模型，<code>java.lang.String</code>这个类是由引导类加载器加载的。如果尝试自定义一个类，命名为<code>java.lang.String</code>，并尝试加载这个类，由于双亲委派机制，它会被引导类加载器拦截，而不是被应用程序类加载器加载。</p>
+<p>以下是一个简单的例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 自定义一个名为 java.lang.String 的类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">java</span>.lang.String &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Custom java.lang.String class&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后，编写一个包含上述自定义类的Java程序：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CustomStringTest</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 尝试加载自定义的 java.lang.String 类</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 使用系统类加载器加载</span></span><br><span class="line">            Class&lt;?&gt; customStringClass = Class.forName(<span class="string">&quot;java.lang.String&quot;</span>);</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 如果成功加载，创建实例并调用 main 方法</span></span><br><span class="line">            customStringClass.newInstance().getClass().getMethod(<span class="string">&quot;main&quot;</span>, String[].class)</span><br><span class="line">                    .invoke(<span class="literal">null</span>, (Object) <span class="literal">null</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClassNotFoundException | IllegalAccessException |</span><br><span class="line">                InstantiationException | NoSuchMethodException |</span><br><span class="line">                InvocationTargetException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在运行<code>CustomStringTest</code>类时，由于双亲委派模型，实际上会加载引导类加载器中的<code>java.lang.String</code>，而不是自定义的<code>java.lang.String</code>类。这会导致类加载错误，因为引导类加载器不允许在<code>java.lang</code>包中加载自定义的类。</p>
+<h3 id="沙箱安全机制"><a href="#沙箱安全机制" class="headerlink" title="沙箱安全机制"></a>沙箱安全机制</h3><p>Java的沙箱安全机制是一种安全措施，旨在提供一种对Java应用程序执行环境进行限制的方式，以防止恶意代码对系统的不当访问。这种机制通过限制代码在运行时的行为，尤其是对底层系统资源的访问，来提高Java应用程序的安全性。以下是Java的沙箱安全机制的一些关键方面：</p>
+<ol>
+<li><strong>字节码验证：</strong> 在Java中，所有的Java类都被编译成字节码，然后由Java虚拟机（JVM）执行。字节码验证是确保字节码的合法性和安全性的过程。在加载类的过程中，JVM会对字节码进行验证，以防止通过恶意手段构造的恶意代码。</li>
+<li><strong>类加载器的双亲委派模型：</strong> 双亲委派模型在一定程度上提高了类加载的安全性。核心类库由引导类加载器加载，而应用程序类由应用程序类加载器加载。这种层次结构确保核心类库不容易被替代，从而维护了系统的稳定性和安全性。</li>
+<li><strong>安全管理器（Security Manager）：</strong> 安全管理器是Java的一个关键组件，它允许在Java应用程序中定义安全策略。通过安全管理器，可以授予或拒绝代码对系统资源的访问，如文件、网络、系统属性等。开发人员可以通过在应用程序中配置安全策略文件，限制代码的权限。</li>
+</ol>
+<h2 id="类的加载过程"><a href="#类的加载过程" class="headerlink" title="类的加载过程"></a>类的加载过程</h2><p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/image-20231210162106240.png" alt="image-20231210162106240"></p>
+<h3 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h3><p>Java类的加载过程是指将Java源代码编译成字节码文件（.class 文件）并加载到Java虚拟机（JVM）中运行的整个过程。</p>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ol>
+<li><strong>加载（Loading）：</strong><ul>
+<li>类的加载是指将类的字节码文件加载到内存中。这个过程由类加载器（ClassLoader）来完成。</li>
+<li>类加载器根据类的全限定名（Fully Qualified Name）查找类文件，可以从文件系统、网络或其他来源获取字节码数据。</li>
+<li>加载完成后，字节码数据被存储在方法区（Method Area）中，不同类的字节码数据在方法区中占据不同的区域。</li>
+</ul>
+</li>
+<li><strong>验证（Verification）：</strong><ul>
+<li>验证阶段确保加载的字节码是合法、符合规范的。这个过程主要包括对字节码格式的验证、符号引用的验证等。</li>
+<li>验证阶段是确保类的可靠性和安全性的关键一步。</li>
+<li><strong>标准JVM字节码都以CAFE BABE开头</strong></li>
+</ul>
+</li>
+<li><strong>准备（Preparation）：</strong><ul>
+<li>在准备阶段，虚拟机为类的静态变量分配内存，并设置默认初始值。</li>
+<li>这里分配的内存不包括在代码中显式赋值的部分，只包括那些由系统自动生成的、具有默认值的部分。</li>
+</ul>
+</li>
+<li><strong>解析（Resolution）：</strong><ul>
+<li>解析阶段是将类、接口、字段和方法的符号引用解析为直接引用的过程。</li>
+<li>在解析阶段，虚拟机将符号引用替换为直接引用，以便后续的执行阶段使用。</li>
+</ul>
+</li>
+<li><strong>初始化（Initialization）：</strong><ul>
+<li>在初始化阶段，对类进行初始化。这是类加载过程的最后一步。</li>
+<li>在初始化阶段，虚拟机执行类的初始化代码，包括执行静态初始化块和静态变量的赋值。</li>
+<li>初始化阶段是类加载中的一个重要阶段，它确保了在使用类之前，类的初始化工作已经完成。</li>
+</ul>
+</li>
+</ol>
+<p>JVM判断两个对象是否为同一个类的两个必要条件：</p>
+<ol>
+<li>类的名称必须完全相同，包括完整包名</li>
+<li>加载它们的类加载器相同</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/12/10/JVM-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F/" data-id="cmb6nv63p0008g4w1757391h7" data-title="JVM-类加载子系统" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-JVM-简介" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/12/06/JVM-%E7%AE%80%E4%BB%8B/" class="article-date">
+  <time class="dt-published" datetime="2023-12-06T12:11:43.000Z" itemprop="datePublished">2023-12-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/12/06/JVM-%E7%AE%80%E4%BB%8B/">JVM-简介</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>JVM（Java Virtual Machine）是Java虚拟机的缩写。它是一种能够执行Java字节码的虚拟机，是Java平台的关键组成部分之一。Java程序员使用Java编程语言编写应用程序，这些应用程序在JVM上运行而不是在特定硬件上直接运行。</p>
+<h3 id="JVM类型"><a href="#JVM类型" class="headerlink" title="JVM类型"></a>JVM类型</h3><ol>
+<li><strong>HotSpot JVM：</strong> HotSpot是由Sun Microsystems开发的Java虚拟机，它是Java平台的一部分。HotSpot以其高性能而著称，使用即时编译（JIT）技术将字节码转换为本地机器代码。</li>
+<li><strong>JRockit JVM：</strong> JRockit是由BEA Systems（现在是Oracle Corporation的一部分）开发的Java虚拟机，专注于提供高性能和低延迟的Java应用程序执行。</li>
+<li><strong>IBM J9 JVM：</strong> IBM的J9虚拟机是IBM公司的Java虚拟机实现，主要用于IBM的Java运行时环境，例如WebSphere。</li>
+<li><strong>OpenJ9：</strong> OpenJ9是Eclipse Foundation的项目，也是一个开源的Java虚拟机实现，它具有高性能和低内存占用的特点。</li>
+<li><strong>GraalVM：</strong> GraalVM是由Oracle Labs开发的一种新型的Java虚拟机，它支持多语言运行时，并且具有即时编译器（Graal编译器），可以提供优越的性能。</li>
+</ol>
+<h3 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h3><p>JVM的主要功能包括：</p>
+<ol>
+<li><strong>字节码执行：</strong> Java源代码被编译成字节码，而不是机器特定的代码。JVM负责解释或即时编译这些字节码为机器码，以在底层硬件上执行。</li>
+<li><strong>内存管理：</strong> JVM负责管理Java程序的内存，包括堆内存（用于对象分配）和栈内存（用于方法调用和局部变量存储）。</li>
+<li><strong>垃圾回收：</strong> JVM提供自动垃圾回收功能，定期清理不再被引用的对象，释放内存。</li>
+<li><strong>即时编译（JIT）：</strong> 有些JVM实现采用即时编译技术，将字节码在运行时编译成本地机器码，以提高执行效率。</li>
+<li><strong>安全性：</strong> JVM提供安全性特性，包括字节码验证，以确保运行的代码不会违反Java语言规范。</li>
+</ol>
+<p>JVM是Java跨平台特性的关键，使得Java程序能够在不同的操作系统上运行，只要有对应的JVM实现。这种跨平台性主要是因为Java程序不直接与底层硬件交互，而是通过JVM提供的抽象层进行交互。</p>
+<p><strong>JVM支持的是JVM字节码，任何能够编译成JVM字节码的语言，都可以在JVM上运行。</strong></p>
+<h3 id="组成部分"><a href="#组成部分" class="headerlink" title="组成部分"></a>组成部分</h3><p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/image-20231206194252902.png" alt="image-20231206194252902"></p>
+<p>JVM（Java Virtual Machine）的结构主要包括以下几个关键组成部分：</p>
+<ol>
+<li><strong>类加载器（Class Loader）：</strong><ul>
+<li><strong>Bootstrap Class Loader：</strong> 负责加载Java核心库，例如<code>java.lang</code>包。</li>
+<li><strong>Extension Class Loader：</strong> 负责加载Java扩展库，例如<code>javax</code>包。</li>
+<li><strong>Application Class Loader：</strong> 负责加载应用程序的类，是最常用的类加载器。</li>
+</ul>
+</li>
+<li><strong>运行时数据区（Runtime Data Areas）：</strong><ul>
+<li><strong>方法区（Method Area）：</strong> 存储类的结构信息、常量、静态变量等数据。</li>
+<li><strong>堆（Heap）：</strong> 用于存储对象实例。所有线程共享堆，但是每个线程有自己的私有栈。</li>
+<li><strong>栈（Stack）：</strong> 每个线程都有一个私有的栈，用于存储局部变量、操作数栈、方法出口等信息。</li>
+<li><strong>程序计数器（Program Counter Register）：</strong> 记录当前线程执行的字节码指令地址。</li>
+<li><strong>本地方法栈（Native Method Stack）：</strong> 用于支持Java以外的语言调用Java本地方法。</li>
+</ul>
+</li>
+<li><strong>执行引擎（Execution Engine）：</strong><ul>
+<li><strong>解释器（Interpreter）：</strong> 逐行解释执行字节码。</li>
+<li><strong>即时编译器（Just-In-Time Compiler，JIT）：</strong> 将整个字节码编译为本地机器码，提高执行速度。</li>
+</ul>
+</li>
+<li><strong>本地接口（Native Interface）：</strong><ul>
+<li>提供了一个接口，允许Java代码调用和被调用本地库中的方法。</li>
+</ul>
+</li>
+<li><strong>本地方法库（Native Method Libraries）：</strong><ul>
+<li>包含了一组本地方法的库，这些方法可以通过本地接口调用。</li>
+</ul>
+</li>
+</ol>
+<p>JVM的结构图可以用以下简化形式表示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">sqlCopy code+---------------------------------------------+</span><br><span class="line">|                 Class Loader                 |</span><br><span class="line">+---------------------------------------------+</span><br><span class="line">|        Runtime Data Areas (JVM Memory)       |</span><br><span class="line">|  +---------------------------------------+  |</span><br><span class="line">|  |          Method Area (Class metadata, |  |</span><br><span class="line">|  |         static fields, etc.)           |  |</span><br><span class="line">|  +---------------------------------------+  |</span><br><span class="line">|  |                Heap (Object           |  |</span><br><span class="line">|  |                Instances)              |  |</span><br><span class="line">|  +---------------------------------------+  |</span><br><span class="line">|  |                Stack (Local Variables,|  |</span><br><span class="line">|  |                Operand Stack, etc.)    |  |</span><br><span class="line">|  +---------------------------------------+  |</span><br><span class="line">|  |      Program Counter (Address of the   |  |</span><br><span class="line">|  |        currently executing instruction)|  |</span><br><span class="line">|  +---------------------------------------+  |</span><br><span class="line">|  | Native Method Stack (For executing    |  |</span><br><span class="line">|  |      native methods)                  |  |</span><br><span class="line">|  +---------------------------------------+  |</span><br><span class="line">|                 Execution Engine            |</span><br><span class="line">|  +---------------------------------------+  |</span><br><span class="line">|  |          Interpreter or JIT Compiler  |  |</span><br><span class="line">|  +---------------------------------------+  |</span><br><span class="line">|               Native Interface              |</span><br><span class="line">|  +---------------------------------------+  |</span><br><span class="line">|  |          Native Method Libraries      |  |</span><br><span class="line">|  +---------------------------------------+  |</span><br><span class="line">+---------------------------------------------+</span><br></pre></td></tr></table></figure>
+
+<p>上述结构展示了JVM在运行Java程序时所涉及的主要组成部分。不同的JVM实现可能有细微的差异，但这个基本结构是通用的。</p>
+<h3 id="JVM的位置"><a href="#JVM的位置" class="headerlink" title="JVM的位置"></a>JVM的位置</h3><p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/image-20231206200159088.png" alt="image-20231206200159088"></p>
+<p>JVM是运行在操作系统上的，它与硬件没有直接交互</p>
+<h3 id="JVM字节码架构"><a href="#JVM字节码架构" class="headerlink" title="JVM字节码架构"></a>JVM字节码架构</h3><p>JVM字节码是一种栈式架构。</p>
+<p>Java 编译器（javac）将 Java 源代码翻译成字节码（bytecode），而字节码是一种与底层硬件架构无关的中间表示。字节码并不直接与特定硬件架构相关联，因此不涉及具体的计算机体系结构。</p>
+<p>字节码采用的是一种栈式架构（stack-based architecture），它基于一种假设，即操作数和操作数结果都存储在一个操作数栈中。这种栈式架构是为了在不同的硬件平台上都能够保持一致性，实现 Java 跨平台执行的目标。字节码的执行是由 Java 虚拟机（JVM）来完成的，JVM 将字节码解释或编译成本地机器代码，以在特定硬件上执行。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/12/06/JVM-%E7%AE%80%E4%BB%8B/" data-id="cmb6nv63o0005g4w1d6jqd9i8" data-title="JVM-简介" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-吃透基础算法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/01/21/%E5%90%83%E9%80%8F%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" class="article-date">
+  <time class="dt-published" datetime="2023-01-21T06:35:16.000Z" itemprop="datePublished">2023-01-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/01/21/%E5%90%83%E9%80%8F%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/">吃透基础算法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="吃透基础算法"><a href="#吃透基础算法" class="headerlink" title="吃透基础算法"></a>吃透基础算法</h1><h2 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h2><p>排序算法是《数据结构与算法》中最基本的算法之一。</p>
+<p>排序算法可以分为内部排序和外部排序，内部排序是数据记录在内存中进行排序，而外部排序是因排序的数据很大，一次不能容纳全部的排序记录，在排序过程中需要访问外存。常见的内部排序算法有：插入排序、希尔排序、选择排序、冒泡排序、归并排序、快速排序、堆排序、基数排序等。用一张图概括：</p>
+<p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/oNqhHjJf8dBWLaS.png" alt="img"></p>
+<h3 id="什么是稳定的排序算法："><a href="#什么是稳定的排序算法：" class="headerlink" title="什么是稳定的排序算法："></a>什么是稳定的排序算法：</h3><p>假定在待排序的记录序列中，存在多个具有相同的关键字的记录，若经过排序，这些记录的相对次序保持不变，即在原序列中，A1&#x3D;A2，且A1在A2之前，而在排序后的序列中，A1仍在A2之前，则称这种排序算法是稳定的；否则称为不稳定的。</p>
+<h4 id="不稳定排序算法"><a href="#不稳定排序算法" class="headerlink" title="不稳定排序算法"></a>不稳定排序算法</h4><p>堆排序、快速排序、希尔排序、直接选择排序</p>
+<h4 id="稳定排序算法"><a href="#稳定排序算法" class="headerlink" title="稳定排序算法"></a>稳定排序算法</h4><p>基数排序、冒泡排序、直接插入排序、折半插入排序、归并排序</p>
+<h3 id="交换函数"><a href="#交换函数" class="headerlink" title="交换函数"></a>交换函数</h3><p>首先阐述一下交换函数的三种写法。</p>
+<h5 id="具体实现："><a href="#具体实现：" class="headerlink" title="具体实现："></a>具体实现：</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">// 临时变量法</span></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">swapByTemp</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> i, <span class="type">int</span> j)</span> &#123;</span><br><span class="line">       <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> nums[i];</span><br><span class="line">       nums[i] = nums[j];</span><br><span class="line">       nums[j] = temp;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 算术法</span></span><br><span class="line">   <span class="comment">// int有溢出风险</span></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">swapByArithmetic</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> i, <span class="type">int</span> j)</span> &#123;</span><br><span class="line">       nums[i] = nums[i] + nums[j];</span><br><span class="line">       nums[j] = nums[i] - nums[j];</span><br><span class="line">       nums[i] = nums[i] - nums[j];</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 位运算法</span></span><br><span class="line"><span class="comment">// 如果i==j, nums[i]和nums[j]会被置为0</span></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">swapByBitOperation</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> i, <span class="type">int</span> j)</span> &#123;</span><br><span class="line">       nums[i] = nums[i] ^ nums[j];</span><br><span class="line">       nums[j] = nums[i] ^ nums[j]; <span class="comment">// nums[i] ^ nums[j] ^ nums[j] = array[i]</span></span><br><span class="line">       nums[i] = nums[i] ^ nums[j]; <span class="comment">// nums[i] ^ nums[j] ^ nums[i] = array[j]</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="三种简单排序：冒泡、选择、插入"><a href="#三种简单排序：冒泡、选择、插入" class="headerlink" title="三种简单排序：冒泡、选择、插入"></a>三种简单排序：冒泡、选择、插入</h3><h4 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h4><h5 id="基本思想："><a href="#基本思想：" class="headerlink" title="基本思想："></a>基本思想：</h5><p>是一种交换排序。遍历n遍数组，元素两两比较，若这两元素不满足预期顺序，则交换位置。</p>
+<p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/SXI9raHpBJnUmMy.png" alt="bubble-sort"></p>
+<h5 id="具体实现：-1"><a href="#具体实现：-1" class="headerlink" title="具体实现："></a>具体实现：</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 经典写法，每一次将最大值冒泡到序列最后</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">bubbleSort</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> nums.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; len-i-<span class="number">1</span>; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[j] &gt; nums[j+<span class="number">1</span>]) &#123;</span><br><span class="line">                swap(nums, j, j+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 作者偏好写法，每一次将最小值冒泡至序列最前</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">bubbleSort</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i&lt;nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> i+<span class="number">1</span>; j&lt;nums.length; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] &gt; nums[j]) &#123;</span><br><span class="line">                swap(nums, j, j+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h4><h5 id="基本思想：-1"><a href="#基本思想：-1" class="headerlink" title="基本思想："></a>基本思想：</h5><p>维护已排序的序列，向已排序序列中插入元素使其保持有序。即扑克抓牌。</p>
+<p>实际上直接插入排序和冒泡排序的区别在于：</p>
+<p>直接插入排序是固定i，将i之前的序列排序，i从1遍历到len-1，即排序n次i之前的序列。</p>
+<p>冒泡排序是固定i，每次从0遍历到len-1，和i+1处元素比较大小并交换，遍历n次。</p>
+<p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/nMgF389rbyUdxuY.png" alt="insertion-sort"></p>
+<h5 id="具体实现：-2"><a href="#具体实现：-2" class="headerlink" title="具体实现："></a>具体实现：</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">insertSort</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> nums.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> i;</span><br><span class="line">        <span class="keyword">while</span> (j &gt; <span class="number">0</span> &amp;&amp; nums[j] &lt; nums[j-<span class="number">1</span>]) &#123;</span><br><span class="line">            swap(nums, j-<span class="number">1</span>, j);</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h4><h5 id="基本思想：-2"><a href="#基本思想：-2" class="headerlink" title="基本思想："></a>基本思想：</h5><p>如果说插入排序是抓牌，那么选择排序就是挑牌。</p>
+<p>每次挑选剩下序列中的最小&#x2F;最大元素出来作为首元素，直到所有元素排完为止。</p>
+<p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/pnx61jtSUJ8vQB4.png" alt="Selection Sort Tutorials &amp; Notes | Algorithms | HackerEarth"></p>
+<h5 id="具体实现：-3"><a href="#具体实现：-3" class="headerlink" title="具体实现："></a>具体实现：</h5><p>每次抓牌维护一个最小&#x2F;最大元素下标，将首元素i和min&#x2F;max交换</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">selectionSort</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> nums.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">min</span> <span class="operator">=</span> i;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> i + <span class="number">1</span>; j &lt; len; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[j] &lt; nums[min]) &#123;</span><br><span class="line">                min = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(nums, i, min);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>对比一下上面三种排序算法的排序过程</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">int</span>[] nums1 = <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;<span class="number">2</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">BubbleSort</span>().bubbleSort(nums1);</span><br><span class="line">    System.out.println(<span class="string">&quot;-----------------------&quot;</span>);</span><br><span class="line">    <span class="type">int</span>[] nums4 = <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;<span class="number">2</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">BubbleSort</span>().bubbleSort1(nums4);</span><br><span class="line">    System.out.println(<span class="string">&quot;-----------------------&quot;</span>);</span><br><span class="line">    <span class="type">int</span>[] nums2 = <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;<span class="number">2</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">InsertSort</span>().insertSort(nums2);</span><br><span class="line">    System.out.println(<span class="string">&quot;-----------------------&quot;</span>);</span><br><span class="line">    <span class="type">int</span>[] nums3 = <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;<span class="number">2</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">SelectionSort</span>().selectionSort(nums3);</span><br><span class="line">    System.out.println(<span class="string">&quot;-----------------------&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">2</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">5</span>]</span><br><span class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">[<span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">-----------------------</span><br><span class="line">[<span class="number">1</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">4</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">-----------------------</span><br><span class="line">[<span class="number">2</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">1</span>]</span><br><span class="line">[<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">1</span>]</span><br><span class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">-----------------------</span><br><span class="line">[<span class="number">1</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">5</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">-----------------------</span><br></pre></td></tr></table></figure>
+
+<p>冒泡排序，直接插入排序均是稳定排序算法。</p>
+<p>直接选择排序是不稳定排序算法。</p>
+<h3 id="面试必考：快排、归并"><a href="#面试必考：快排、归并" class="headerlink" title="面试必考：快排、归并"></a>面试必考：快排、归并</h3><h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><h5 id="基本思想：-3"><a href="#基本思想：-3" class="headerlink" title="基本思想："></a>基本思想：</h5><p>它的基本思想是: 选择一个基准数，通过一趟排序将要排序的数据分割成独立的两部分；其中一部分的所有数据都比另外一部分的所有数据都要小。然后，再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。</p>
+<h5 id="实现方法："><a href="#实现方法：" class="headerlink" title="实现方法："></a>实现方法：</h5><p>① 挖坑法 用伪代码描述如下：</p>
+<p>（1）low &#x3D; L; high &#x3D; R; 将基准数挖出形成第一个坑a[low]。</p>
+<p>（2）high–，由后向前找比它小的数，找到后挖出此数填前一个坑a[low]中。</p>
+<p>（3）low++，由前向后找比它大的数，找到后也挖出此数填到前一个坑a[high]中。</p>
+<p>（4）再重复执行②，③二步，直到low&#x3D;&#x3D;high，将基准数填入a[low]中。</p>
+<p>举例说明： 一个无序数组：[4, 3, 7, 5, 10, 9, 1, 6, 8, 2]</p>
+<p>（1）随便先挖个坑，就在第一个元素（基准元素）挖坑，挖出来的“萝卜”（第一个元素4）在“篮子”（临时变量）里备用。 挖完之后的数组是这样：[ 坑, 3, 7, 5, 10, 9, 1, 6, 8,2]</p>
+<p>（2）挖右坑填左坑：从右边开始，找个比“萝卜”（元素4）小的元素，挖出来，填到前一个坑里面。 填坑之后：[ 2, 3, 7, 5, 10, 9, 1, 6, 8,坑]</p>
+<p>（3）挖左坑填右坑：从左边开始，找个比“萝卜”（元素4）大的元素，挖出来，填到右边的坑里面。 填坑之后：[ 2, 3,坑, 5, 10, 9, 1, 6, 8, 7]</p>
+<p>（4）挖右坑填左坑：从右边开始，找个比“萝卜”（元素4）小的元素，挖出来，填到前一个坑里面。 填坑之后：[ 2, 3, 1, 5, 10, 9,坑, 6, 8, 7]</p>
+<p>（5）挖左坑填右坑：从左边开始，找个比“萝卜”（元素4）大的元素，挖出来，填到右边的坑里面。 填坑之后：[ 2, 3, 1,坑, 10, 9, 5, 6, 8, 7]</p>
+<p>（6）挖右坑填左坑：从右边开始，找个比“萝卜”（元素4）小的元素，挖出来，填到前一个坑里面，这一次找坑的过程中，找到了上一次挖的坑了，说明可以停了，用篮子里的的萝卜，把这个坑填了就行了，并且返回这个坑的位置，作为分而治之的中轴线。 填坑之后：[ 2, 3, 1, 4, 10, 9, 5, 6, 8, 7]</p>
+<p>上面的步骤中，第2,4,6其实都是一样的操作，3和5的操作也是一样的，代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 挖坑法</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">quickSort</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> left, <span class="type">int</span> right)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (left &gt;= right) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> <span class="variable">l</span> <span class="operator">=</span> left;</span><br><span class="line">    <span class="type">int</span> <span class="variable">r</span> <span class="operator">=</span> right;</span><br><span class="line">    <span class="type">int</span> <span class="variable">pivot</span> <span class="operator">=</span> nums[left]; <span class="comment">// 挖坑1：保存pivot的值</span></span><br><span class="line">    <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">        <span class="keyword">while</span> (l &lt; r &amp;&amp; nums[r] &gt;= pivot) &#123;</span><br><span class="line">            r --;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 挖坑2：从右向左找到比pivot小的数，放入坑1</span></span><br><span class="line">        nums[l] = nums[r];</span><br><span class="line">        <span class="keyword">while</span> (l &lt; r &amp;&amp; nums[l] &lt;= pivot) &#123;</span><br><span class="line">            l ++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 挖坑3：从左向右找到比pivot大的数，放入坑2</span></span><br><span class="line">        nums[r] = nums[l];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 将坑3填入pivot值</span></span><br><span class="line">    nums[l] = pivot;</span><br><span class="line">    <span class="comment">// 到这为止，左边全是小于pivot的，右边全是大于pivot的</span></span><br><span class="line">    <span class="comment">// 递归分治</span></span><br><span class="line">    quickSort(nums, left, l-<span class="number">1</span>);</span><br><span class="line">    quickSort(nums, l+<span class="number">1</span>, right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>② 左右指针法</p>
+<p>用伪代码描述如下：</p>
+<p>（1）low &#x3D; L; high &#x3D; R; 选取a[low]作为关键字记录为pivot。</p>
+<p>（2）high–，由后向前找比它小的数</p>
+<p>（3）low++，由前向后找比它大的数</p>
+<p>（4）交换第（2）、（3）步找到的数</p>
+<p>（5）重复（2）、（3），一直往后找，直到left和right相遇，这时将pivot和a[low]交换位置。</p>
+<p>代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 双指针法</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">quickSort</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> left, <span class="type">int</span> right)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (left &gt;= right) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> <span class="variable">l</span> <span class="operator">=</span> left;</span><br><span class="line">    <span class="type">int</span> <span class="variable">r</span> <span class="operator">=</span> right;</span><br><span class="line">    <span class="type">int</span> <span class="variable">pivot</span> <span class="operator">=</span> nums[left];</span><br><span class="line">    <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">        <span class="keyword">while</span> (l &lt; r &amp;&amp; nums[r] &gt;= pivot) &#123;</span><br><span class="line">            r --;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (l &lt; r &amp;&amp; nums[l] &lt;= pivot) &#123;</span><br><span class="line">            l ++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (nums[l] &gt; nums[r]) &#123;</span><br><span class="line">            swap(nums, l ,r);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    swap(nums, l, left);</span><br><span class="line">    <span class="comment">// 递归分治</span></span><br><span class="line">    quickSort(nums, left, l-<span class="number">1</span>);</span><br><span class="line">    quickSort(nums, l+<span class="number">1</span>, right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="为什么快速排序从右边先开始？"><a href="#为什么快速排序从右边先开始？" class="headerlink" title="为什么快速排序从右边先开始？"></a>为什么快速排序从右边先开始？</h5><p>这是因为快速排序从右边开始的原因是因为选择的基准值key一般都是最左边的元素。</p>
+<p>假设左哨兵为i 右哨兵为j 选择的key为最左边的元素</p>
+<p>也就是说</p>
+<p>当首先从右边开始先执行时，循环的条件是:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (i &lt; j &amp;&amp; array[j] &gt;= key) j--;</span><br></pre></td></tr></table></figure>
+
+<p>最后i、j 停留的位置的值肯定是要 小于 key 的 此时交换索引 j 和最左边元素key 符合将小于key的值放到key左边这一条件</p>
+<p>当首先从左边开始执行时</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (i &lt; j &amp;&amp; array[i] &lt;= key) i++;</span><br></pre></td></tr></table></figure>
+
+<p>循环结束后的 i j 碰面的时的值肯定是要 大于 key的 此时再交换key与索引位置 相当于把比key大的值放到了key左边 也就违背了快排的条件</p>
+<p>所以如果想先从左往右查找，只需把key设置在右侧即可。</p>
+<p>简单来讲就是，若从左开始，最后一步交换pivot和nums[l]，会不满足顺序要求</p>
+<h4 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h4><p>归并排序（MERGE-SORT）是建立在归并操作上的一种有效的排序算法,该算法是采用分治法（Divide and Conquer）的一个非常典型的应用。</p>
+<h5 id="基本思想：-4"><a href="#基本思想：-4" class="headerlink" title="基本思想："></a>基本思想：</h5><p>归并排序的基本思想是将两个或以上的有序列表合并成一个有序列表。即把待排序序列分为若干个子序列，每个子序列是有序的。然后再把有序子序列合并为整体有序序列。</p>
+<h5 id="实现方法：-1"><a href="#实现方法：-1" class="headerlink" title="实现方法："></a>实现方法：</h5><p>要了解合并排序的功能，让我们考虑一个数组 arr[] &#x3D; {38, 27, 43, 3, 9, 82, 10}</p>
+<blockquote>
+<ul>
+<li>首先检查数组的左索引是否小于右索引，如果是则计算它的中点</li>
+</ul>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220525094221/Artboard71-300x150.jpg" alt="img"></p>
+<ul>
+<li>现在，正如我们已经知道的那样，合并排序首先将整个数组迭代地分成相等的两半，除非达到原子值。 </li>
+<li>在这里，我们看到一个包含 7 个项目的数组被分成两个大小分别为 4 和 3 的数组。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/Artboard711-300x150.jpg" alt="img"></p>
+<ul>
+<li>现在，再次发现两个数组的左索引小于右索引，如果发现是，则再次计算两个数组的中点。</li>
+</ul>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220525094314/Artboard721-300x150.jpg" alt="img"></p>
+<ul>
+<li>现在，将这两个数组进一步分成两半，直到达到数组的原子单位，无法进一步划分。</li>
+</ul>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220525094341/Artboard731-300x150.jpg" alt="img"></p>
+<ul>
+<li>将数组划分为最小单元后，根据元素大小的比较再次开始合并元素</li>
+<li>首先，比较每个列表的元素，然后将它们以排序的方式组合到另一个列表中。</li>
+</ul>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220525094403/Artboard741-300x150.jpg" alt="img"></p>
+<ul>
+<li>最终合并后，列表如下所示：</li>
+</ul>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20220525094459/Artboard751-300x150.jpg" alt="img"></p>
+</blockquote>
+<p>将mergeSort拆分为两个函数来实现：sort函数负责将数组划分，merge函数负责将数组合并</p>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903687932887053#heading-7"><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903687932887053#heading-7">面试必备：八种排序算法原理及Java实现</a></a></p>
+<p><a href="geeksforgeeks.org/bubble-sort/"><a target="_blank" rel="noopener" href="https://github.com/cuyu0/Leetcoding/issues/geeksforgeeks.org/bubble-sort/">geeksforgeeks</a></a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/01/21/%E5%90%83%E9%80%8F%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" data-id="cmb6nv63v0013g4w1er3v2tv8" data-title="吃透基础算法" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" rel="tag">排序算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Hexo常用指令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/12/15/Hexo%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" class="article-date">
+  <time class="dt-published" datetime="2022-12-14T23:32:48.000Z" itemprop="datePublished">2022-12-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/12/15/Hexo%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">hexo常用指令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h4><p>新建一个网站</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init [folder]</span><br></pre></td></tr></table></figure>
+
+<p>创建一篇文章</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &lt;title&gt;</span><br></pre></td></tr></table></figure>
+
+<p>生成静态文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+<p>清除缓存文件 (db.json) 和已生成的静态文件 (public)。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+
+<p>本地服务器运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p>部署至远端</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="参考连接"><a href="#参考连接" class="headerlink" title="参考连接"></a>参考连接</h4><p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">hexo官方说明</a></p>
+<p><a target="_blank" rel="noopener" href="https://butterfly.js.org/">theme推荐</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/12/15/Hexo%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" data-id="cmb6nv63j0000g4w1ha8b9jmb" data-title="hexo常用指令" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Typora配置GitHub图床" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/12/15/Typora%E9%85%8D%E7%BD%AEGitHub%E5%9B%BE%E5%BA%8A/" class="article-date">
+  <time class="dt-published" datetime="2022-12-14T23:30:01.000Z" itemprop="datePublished">2022-12-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/12/15/Typora%E9%85%8D%E7%BD%AEGitHub%E5%9B%BE%E5%BA%8A/">Typora配置GitHub图床</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Typora配置GitHub图床"><a href="#Typora配置GitHub图床" class="headerlink" title="Typora配置GitHub图床"></a>Typora配置GitHub图床</h2><h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>当我们想要把本地记录的笔记上传至博客等网站时，会发现本地保存图片的url无法直接解析。如果上传图片，需要手动将本地的图片单独上传，十分麻烦。</p>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>为了解决这个问题，我们在服务端设置一个图床。在使用Typora保存图片时，Typora自动将图片上传至图床并转换成url保存下来，后续想要上传笔记至博客只需要直接复制粘贴即可，十分方便。</p>
+<h4 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h4><ul>
+<li>Github创建图床</li>
+<li>Github配置token</li>
+<li>配置PicGo</li>
+</ul>
+<h4 id="一、Github创建图床"><a href="#一、Github创建图床" class="headerlink" title="一、Github创建图床"></a>一、Github创建图床</h4><p><a target="_blank" rel="noopener" href="https://github.com/">github</a></p>
+<p>登录账户，创建一个新的仓库，仓库配置都不重要，只要有个仓库就行。</p>
+<p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/202211201851585.png" alt="image-20221120184903741"></p>
+<h4 id="二、Github配置token"><a href="#二、Github配置token" class="headerlink" title="二、Github配置token"></a>二、Github配置token</h4><p>1、点进账户设置</p>
+<p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/202211201852016.png" alt="image-20221120185229964"></p>
+<p>2、拉到页面最下方，选择developer setting</p>
+<p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/202211201853081.png" alt="image-20221120185324030"></p>
+<p>3、选择generate new token(classic)</p>
+<p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/202211201854465.png" alt="image-20221120185459406"></p>
+<p>4、配置token的具体信息</p>
+<p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/202211201856986.png" alt="image-20221120185618893"></p>
+<p>5、生成完毕之后，页面会显示token的值，记录并保存下来，因为为了token的安全性，后续再次打开这个页面不会再显示了。</p>
+<p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/202211201857192.png" alt="image-20221120185759129"></p>
+<h4 id="三、配置PicGo"><a href="#三、配置PicGo" class="headerlink" title="三、配置PicGo"></a>三、配置PicGo</h4><p><a target="_blank" rel="noopener" href="https://picgo.github.io/PicGo-Doc/zh/guide/">PicGo is Here</a></p>
+<p>1、下载并安装PicGo，我的安装路径为<code>D:/PicGo</code></p>
+<p>2、打开PicGo，选择图床设置&#x2F;GitHub</p>
+<p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/202211201903867.png" alt="image-20221120190301816"></p>
+<p>3、设置仓库名为<code>你的Github账户名/GitHub图床仓库名</code></p>
+<p>4、设定分支为master或其他你想用来存图片的分支</p>
+<p>5、设定Token</p>
+<p>6、点进Typora偏好设置\图像，进行对应配置</p>
+<p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/202211201906199.png" alt="image-20221120190616125"></p>
+<p>7、验证图片上传选项，PicGo会向你的图床传输几张图片用以验证，若运行结果为success，则图床配置成功</p>
+<p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/202211201908365.png" alt="image-20221120190800305"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/12/15/Typora%E9%85%8D%E7%BD%AEGitHub%E5%9B%BE%E5%BA%8A/" data-id="cmb6nv63q000bg4w1cekig45h" data-title="Typora配置GitHub图床" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Typora/" rel="tag">Typora</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag">图床</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Typora/" rel="tag">Typora</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag">图床</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" rel="tag">排序算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: 16.67px;">Blog</a> <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/JVM/" style="font-size: 16.67px;">JVM</a> <a href="/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/tags/%E5%9B%BE%E5%BA%8A/" style="font-size: 10px;">图床</a> <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" style="font-size: 10px;">排序算法</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 20px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/05/27/Hexo%E5%BB%BA%E7%AB%99%E6%B5%81%E7%A8%8B/">Hexo建站流程</a>
+          </li>
+        
+          <li>
+            <a href="/2025/05/27/Node.js%E9%A1%B9%E7%9B%AE%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86%E8%A7%A3%E6%9E%90/">Node.js项目依赖管理解析</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/10/JVM-%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8/">JVM-程序计数器</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/10/JVM-%E6%9E%B6%E6%9E%84%E5%9B%BE/">JVM-架构图</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/10/JVM-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F/">JVM-类加载子系统</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Typora配置GitHub图床 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Typora配置GitHub图床">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Typora配置GitHub图床">
+<meta property="og:url" content="http://example.com/2022/12/15/Typora%E9%85%8D%E7%BD%AEGitHub%E5%9B%BE%E5%BA%8A/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Typora配置GitHub图床">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/cuyu0/Images/master/202211201851585.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/cuyu0/Images/master/202211201852016.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/cuyu0/Images/master/202211201853081.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/cuyu0/Images/master/202211201854465.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/cuyu0/Images/master/202211201856986.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/cuyu0/Images/master/202211201857192.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/cuyu0/Images/master/202211201903867.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/cuyu0/Images/master/202211201906199.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/cuyu0/Images/master/202211201908365.png">
+<meta property="article:published_time" content="2022-12-14T23:30:01.000Z">
+<meta property="article:modified_time" content="2022-12-14T23:30:01.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Blog">
+<meta property="article:tag" content="图床">
+<meta property="article:tag" content="Typora">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/cuyu0/Images/master/202211201851585.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Typora配置GitHub图床" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/12/15/Typora%E9%85%8D%E7%BD%AEGitHub%E5%9B%BE%E5%BA%8A/" class="article-date">
+  <time class="dt-published" datetime="2022-12-14T23:30:01.000Z" itemprop="datePublished">2022-12-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Typora配置GitHub图床
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Typora配置GitHub图床"><a href="#Typora配置GitHub图床" class="headerlink" title="Typora配置GitHub图床"></a>Typora配置GitHub图床</h2><h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>当我们想要把本地记录的笔记上传至博客等网站时，会发现本地保存图片的url无法直接解析。如果上传图片，需要手动将本地的图片单独上传，十分麻烦。</p>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>为了解决这个问题，我们在服务端设置一个图床。在使用Typora保存图片时，Typora自动将图片上传至图床并转换成url保存下来，后续想要上传笔记至博客只需要直接复制粘贴即可，十分方便。</p>
+<h4 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h4><ul>
+<li>Github创建图床</li>
+<li>Github配置token</li>
+<li>配置PicGo</li>
+</ul>
+<h4 id="一、Github创建图床"><a href="#一、Github创建图床" class="headerlink" title="一、Github创建图床"></a>一、Github创建图床</h4><p><a target="_blank" rel="noopener" href="https://github.com/">github</a></p>
+<p>登录账户，创建一个新的仓库，仓库配置都不重要，只要有个仓库就行。</p>
+<p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/202211201851585.png" alt="image-20221120184903741"></p>
+<h4 id="二、Github配置token"><a href="#二、Github配置token" class="headerlink" title="二、Github配置token"></a>二、Github配置token</h4><p>1、点进账户设置</p>
+<p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/202211201852016.png" alt="image-20221120185229964"></p>
+<p>2、拉到页面最下方，选择developer setting</p>
+<p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/202211201853081.png" alt="image-20221120185324030"></p>
+<p>3、选择generate new token(classic)</p>
+<p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/202211201854465.png" alt="image-20221120185459406"></p>
+<p>4、配置token的具体信息</p>
+<p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/202211201856986.png" alt="image-20221120185618893"></p>
+<p>5、生成完毕之后，页面会显示token的值，记录并保存下来，因为为了token的安全性，后续再次打开这个页面不会再显示了。</p>
+<p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/202211201857192.png" alt="image-20221120185759129"></p>
+<h4 id="三、配置PicGo"><a href="#三、配置PicGo" class="headerlink" title="三、配置PicGo"></a>三、配置PicGo</h4><p><a target="_blank" rel="noopener" href="https://picgo.github.io/PicGo-Doc/zh/guide/">PicGo is Here</a></p>
+<p>1、下载并安装PicGo，我的安装路径为<code>D:/PicGo</code></p>
+<p>2、打开PicGo，选择图床设置&#x2F;GitHub</p>
+<p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/202211201903867.png" alt="image-20221120190301816"></p>
+<p>3、设置仓库名为<code>你的Github账户名/GitHub图床仓库名</code></p>
+<p>4、设定分支为master或其他你想用来存图片的分支</p>
+<p>5、设定Token</p>
+<p>6、点进Typora偏好设置\图像，进行对应配置</p>
+<p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/202211201906199.png" alt="image-20221120190616125"></p>
+<p>7、验证图片上传选项，PicGo会向你的图床传输几张图片用以验证，若运行结果为success，则图床配置成功</p>
+<p><img src="https://raw.githubusercontent.com/cuyu0/Images/master/202211201908365.png" alt="image-20221120190800305"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/12/15/Typora%E9%85%8D%E7%BD%AEGitHub%E5%9B%BE%E5%BA%8A/" data-id="cmb6nv63q000bg4w1cekig45h" data-title="Typora配置GitHub图床" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Typora/" rel="tag">Typora</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag">图床</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/12/15/Hexo%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          hexo常用指令
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Typora/" rel="tag">Typora</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag">图床</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" rel="tag">排序算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: 16.67px;">Blog</a> <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/JVM/" style="font-size: 16.67px;">JVM</a> <a href="/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/tags/%E5%9B%BE%E5%BA%8A/" style="font-size: 10px;">图床</a> <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" style="font-size: 10px;">排序算法</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 20px;">面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">May 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/05/27/Hexo%E5%BB%BA%E7%AB%99%E6%B5%81%E7%A8%8B/">Hexo建站流程</a>
+          </li>
+        
+          <li>
+            <a href="/2025/05/27/Node.js%E9%A1%B9%E7%9B%AE%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86%E8%A7%A3%E6%9E%90/">Node.js项目依赖管理解析</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/10/JVM-%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8/">JVM-程序计数器</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/10/JVM-%E6%9E%B6%E6%9E%84%E5%9B%BE/">JVM-架构图</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/10/JVM-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F/">JVM-类加载子系统</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
