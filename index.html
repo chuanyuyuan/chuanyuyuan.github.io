@@ -80,12 +80,16 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Hexo建站流程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-微信小程序开发入门（一）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/05/27/Hexo%E5%BB%BA%E7%AB%99%E6%B5%81%E7%A8%8B/" class="article-date">
-  <time class="dt-published" datetime="2025-05-26T23:32:48.000Z" itemprop="datePublished">2025-05-27</time>
+    <a href="/2025/05/29/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2025-05-29T08:51:27.000Z" itemprop="datePublished">2025-05-29</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">微信小程序</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -94,7 +98,122 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/05/27/Hexo%E5%BB%BA%E7%AB%99%E6%B5%81%E7%A8%8B/">Hexo建站流程</a>
+      <a class="p-name article-title" href="/2025/05/29/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/">微信小程序开发入门（一）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/">微信小程序官方文档</a></p>
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>进入<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/wxopen/waregister?action=step1">小程序注册页</a> 根据指引填写信息和提交相应的资料，就可以拥有自己的小程序账号。</p>
+<p>登录 <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/">小程序后台</a> ，我们可以在菜单 “开发”-“开发设置” 看到小程序的 <strong>AppID</strong> 了 。</p>
+<p>安装开发工具，前往 <a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html">开发者工具下载页面</a>。</p>
+<p>打开微信开发者工具，新建项目。后端选择不使用云服务，模板选择JS-基础模板，生成一个小程序demo。</p>
+<p><img src="https://raw.githubusercontent.com/chuanyuyuan/Images/master/image-20250529170010122.png" alt="image-20250529170010122"></p>
+<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><p><img src="https://raw.githubusercontent.com/chuanyuyuan/Images/master/image-20250529170808478.png" alt="image-20250529170808478"></p>
+<p>小程序demo生成了不同类型的文件:</p>
+<ol>
+<li><code>.json</code> 后缀的 <code>JSON</code> 配置文件</li>
+<li><code>.wxml</code> 后缀的 <code>WXML</code> 模板文件</li>
+<li><code>.wxss</code> 后缀的 <code>WXSS</code> 样式文件</li>
+<li><code>.js</code> 后缀的 <code>JS</code> 脚本逻辑文件</li>
+</ol>
+<p>小程序包含一个描述整体程序的 <code>app</code> 和多个描述各自页面的 <code>page</code>。</p>
+<p>一个小程序主体部分由三个文件组成，必须放在项目的根目录，如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left">文件</th>
+<th align="left">必需</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/app.html">app.js</a></td>
+<td align="left">是</td>
+<td align="left">小程序逻辑</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/config.html">app.json</a></td>
+<td align="left">是</td>
+<td align="left">小程序公共配置</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxss.html">app.wxss</a></td>
+<td align="left">否</td>
+<td align="left">小程序公共样式表</td>
+</tr>
+</tbody></table>
+<p>一个小程序页面由四个文件组成，分别是：</p>
+<table>
+<thead>
+<tr>
+<th align="left">文件类型</th>
+<th align="left">必需</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/page.html">js</a></td>
+<td align="left">是</td>
+<td align="left">页面逻辑</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/">wxml</a></td>
+<td align="left">是</td>
+<td align="left">页面结构</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/config.html#%E9%A1%B5%E9%9D%A2%E9%85%8D%E7%BD%AE">json</a></td>
+<td align="left">否</td>
+<td align="left">页面配置</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxss.html">wxss</a></td>
+<td align="left">否</td>
+<td align="left">页面样式表</td>
+</tr>
+</tbody></table>
+<p><strong>注意：为了方便开发者减少配置项，描述页面的四个文件必须具有相同的路径与文件名。</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://chuanyuyuan.github.io/2025/05/29/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/" data-id="cmb9crz7i001nvgw12ysggidy" data-title="微信小程序开发入门（一）" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E6%88%98/" rel="tag">实战</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">微信小程序</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Hexo建站流程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/05/28/Hexo%E5%BB%BA%E7%AB%99%E6%B5%81%E7%A8%8B/" class="article-date">
+  <time class="dt-published" datetime="2025-05-27T23:32:48.000Z" itemprop="datePublished">2025-05-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">Hexo搭建个人博客</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/05/28/Hexo%E5%BB%BA%E7%AB%99%E6%B5%81%E7%A8%8B/">Hexo建站流程</a>
     </h1>
   
 
@@ -118,11 +237,22 @@
 
 <p><img src="https://raw.githubusercontent.com/chuanyuyuan/Images/master/image-20250527211821480.png" alt="image-20250527211821480"></p>
 <p><img src="https://raw.githubusercontent.com/chuanyuyuan/Images/master/image-20250527212110584.png" alt="image-20250527212110584"></p>
+<h3 id="创建github-io个人仓库"><a href="#创建github-io个人仓库" class="headerlink" title="创建github.io个人仓库"></a>创建github.io个人仓库</h3><p><img src="https://raw.githubusercontent.com/chuanyuyuan/Images/master/image-20250528102734386.png" alt="image-20250528102734386"></p>
+<h3 id="一键部署github-io"><a href="#一键部署github-io" class="headerlink" title="一键部署github.io"></a>一键部署github.io</h3><ol>
+<li>安装 <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a>。</li>
+<li>在 <code>_config.yml</code> 中添加以下配置（如果配置已经存在，请将其替换为如下）:</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/&lt;username&gt;/&lt;project&gt;</span><br><span class="line">  # example, https://github.com/hexojs/hexojs.github.io</span><br><span class="line">  branch: gh-pages</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>执行 <code>hexo clean &amp;&amp; hexo deploy</code> 。</li>
+<li>浏览 <em>username</em>.github.io，检查你的网站能否运作。</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://chuanyuyuan.github.io/2025/05/27/Hexo%E5%BB%BA%E7%AB%99%E6%B5%81%E7%A8%8B/" data-id="cmb6u59720001asw1damldify" data-title="Hexo建站流程" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://chuanyuyuan.github.io/2025/05/28/Hexo%E5%BB%BA%E7%AB%99%E6%B5%81%E7%A8%8B/" data-id="cmb9crz770004vgw1cqbyb8qs" data-title="Hexo建站流程" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -142,6 +272,10 @@
   <time class="dt-published" datetime="2025-05-26T23:32:48.000Z" itemprop="datePublished">2025-05-27</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">Hexo搭建个人博客</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -196,7 +330,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://chuanyuyuan.github.io/2025/05/27/Node.js%E9%A1%B9%E7%9B%AE%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86%E8%A7%A3%E6%9E%90/" data-id="cmb6u59760008asw1914hewae" data-title="Node.js项目依赖管理解析" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://chuanyuyuan.github.io/2025/05/27/Node.js%E9%A1%B9%E7%9B%AE%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86%E8%A7%A3%E6%9E%90/" data-id="cmb9crz7a000evgw13yop2p1q" data-title="Node.js项目依赖管理解析" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -216,6 +350,10 @@
   <time class="dt-published" datetime="2023-12-10T08:30:45.000Z" itemprop="datePublished">2023-12-10</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JAVA%E5%9F%BA%E7%A1%80/">JAVA基础</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -246,7 +384,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://chuanyuyuan.github.io/2023/12/10/JVM-%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8/" data-id="cmb6u59740004asw14x3i0gez" data-title="JVM-程序计数器" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://chuanyuyuan.github.io/2023/12/10/JVM-%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8/" data-id="cmb9crz770005vgw11rxzdsr2" data-title="JVM-程序计数器" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -266,6 +404,10 @@
   <time class="dt-published" datetime="2023-12-10T08:06:17.000Z" itemprop="datePublished">2023-12-10</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JAVA%E5%9F%BA%E7%A1%80/">JAVA基础</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -287,7 +429,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://chuanyuyuan.github.io/2023/12/10/JVM-%E6%9E%B6%E6%9E%84%E5%9B%BE/" data-id="cmb6u59740003asw16cb50ggi" data-title="JVM-架构图" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://chuanyuyuan.github.io/2023/12/10/JVM-%E6%9E%B6%E6%9E%84%E5%9B%BE/" data-id="cmb9crz750001vgw18p709pup" data-title="JVM-架构图" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -307,6 +449,10 @@
   <time class="dt-published" datetime="2023-12-10T07:28:05.000Z" itemprop="datePublished">2023-12-10</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JAVA%E5%9F%BA%E7%A1%80/">JAVA基础</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -413,7 +559,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://chuanyuyuan.github.io/2023/12/10/JVM-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F/" data-id="cmb6u59750007asw13jj30uwp" data-title="JVM-类加载子系统" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://chuanyuyuan.github.io/2023/12/10/JVM-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F/" data-id="cmb9crz790009vgw1dmb457o8" data-title="JVM-类加载子系统" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -433,6 +579,10 @@
   <time class="dt-published" datetime="2023-12-06T12:11:43.000Z" itemprop="datePublished">2023-12-06</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JAVA%E5%9F%BA%E7%A1%80/">JAVA基础</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -511,7 +661,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://chuanyuyuan.github.io/2023/12/06/JVM-%E7%AE%80%E4%BB%8B/" data-id="cmb6u59750005asw10gzihqo5" data-title="JVM-简介" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://chuanyuyuan.github.io/2023/12/06/JVM-%E7%AE%80%E4%BB%8B/" data-id="cmb9crz780006vgw15fut5mvr" data-title="JVM-简介" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -531,6 +681,10 @@
   <time class="dt-published" datetime="2023-01-21T06:35:16.000Z" itemprop="datePublished">2023-01-21</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -657,7 +811,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://chuanyuyuan.github.io/2023/01/21/%E5%90%83%E9%80%8F%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" data-id="cmb6u597b000yasw12iog9ww1" data-title="吃透基础算法" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://chuanyuyuan.github.io/2023/01/21/%E5%90%83%E9%80%8F%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" data-id="cmb9crz7b000gvgw1f7q7hb5p" data-title="吃透基础算法" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -677,6 +831,10 @@
   <time class="dt-published" datetime="2022-12-14T23:32:48.000Z" itemprop="datePublished">2022-12-15</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">Hexo搭建个人博客</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -719,7 +877,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://chuanyuyuan.github.io/2022/12/15/Hexo%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" data-id="cmb6u59700000asw16u6rhza6" data-title="hexo常用指令" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://chuanyuyuan.github.io/2022/12/15/Hexo%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" data-id="cmb9crz720000vgw1gubthd92" data-title="hexo常用指令" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -739,6 +897,10 @@
   <time class="dt-published" datetime="2022-12-14T23:30:01.000Z" itemprop="datePublished">2022-12-15</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">Hexo搭建个人博客</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -790,7 +952,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://chuanyuyuan.github.io/2022/12/15/Typora%E9%85%8D%E7%BD%AEGitHub%E5%9B%BE%E5%BA%8A/" data-id="cmb6u597b000xasw1gg05ckib" data-title="Typora配置GitHub图床" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://chuanyuyuan.github.io/2022/12/15/Typora%E9%85%8D%E7%BD%AEGitHub%E5%9B%BE%E5%BA%8A/" data-id="cmb9crz79000avgw1bzclb5j6" data-title="Typora配置GitHub图床" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -811,13 +973,20 @@
           <aside id="sidebar">
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">Hexo搭建个人博客</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JAVA%E5%9F%BA%E7%A1%80/">JAVA基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">微信小程序</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li></ul>
+    </div>
+  </div>
+
 
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Typora/" rel="tag">Typora</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag">图床</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" rel="tag">排序算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Typora/" rel="tag">Typora</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag">图床</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E6%88%98/" rel="tag">实战</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">微信小程序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" rel="tag">排序算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
     </div>
   </div>
 
@@ -827,7 +996,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Blog/" style="font-size: 16.67px;">Blog</a> <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/JVM/" style="font-size: 16.67px;">JVM</a> <a href="/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/tags/%E5%9B%BE%E5%BA%8A/" style="font-size: 10px;">图床</a> <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" style="font-size: 10px;">排序算法</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 20px;">面试</a>
+      <a href="/tags/Blog/" style="font-size: 16.67px;">Blog</a> <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/JVM/" style="font-size: 16.67px;">JVM</a> <a href="/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/tags/%E5%9B%BE%E5%BA%8A/" style="font-size: 10px;">图床</a> <a href="/tags/%E5%AE%9E%E6%88%98/" style="font-size: 10px;">实战</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">微信小程序</a> <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" style="font-size: 10px;">排序算法</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 20px;">面试</a>
     </div>
   </div>
 
@@ -849,7 +1018,11 @@
       <ul>
         
           <li>
-            <a href="/2025/05/27/Hexo%E5%BB%BA%E7%AB%99%E6%B5%81%E7%A8%8B/">Hexo建站流程</a>
+            <a href="/2025/05/29/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/">微信小程序开发入门（一）</a>
+          </li>
+        
+          <li>
+            <a href="/2025/05/28/Hexo%E5%BB%BA%E7%AB%99%E6%B5%81%E7%A8%8B/">Hexo建站流程</a>
           </li>
         
           <li>
@@ -862,10 +1035,6 @@
         
           <li>
             <a href="/2023/12/10/JVM-%E6%9E%B6%E6%9E%84%E5%9B%BE/">JVM-架构图</a>
-          </li>
-        
-          <li>
-            <a href="/2023/12/10/JVM-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F/">JVM-类加载子系统</a>
           </li>
         
       </ul>
